@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheptiony's Blog Archive | Insights & Resources</title>
+    <style>
+        /* Theme Colors: #091943 (Dark Blue), #2463eb (Bright Blue), #F3F4F6 (Light Gray), #16A249 (Green), #FFFFFF (White) */
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F3F4F6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Header Styles */
+        .blog-header {
+            background-color: #091943; /* Dark Blue */
+            color: #FFFFFF;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .blog-header h1 {
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .blog-header p {
+            font-size: 1.1rem;
+            color: #F3F4F6;
+        }
+        .back-home {
+            color: #2463eb;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .back-home:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        #searchInput {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px 20px;
+            border: 2px solid #ccc;
+            border-radius: 25px;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05) inset;
+            transition: border-color 0.3s;
+        }
+        #searchInput:focus {
+            border-color: #2463eb;
+            outline: none;
+        }
+
+        /* Post List */
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        .post-item {
+            background: #FFFFFF;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .post-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .post-item a {
+            text-decoration: none;
+            color: #091943;
+            display: block;
+        }
+        .post-item h2 {
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            color: #2463eb; /* Bright Blue */
+            transition: color 0.2s;
+        }
+        .post-item:hover h2 {
+            color: #091943; /* Dark Blue on hover */
+        }
+        .post-meta {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        .post-meta .category {
+            background-color: #F3F4F6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #333;
+            margin-right: 10px;
+        }
+        .post-excerpt {
+            color: #555;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+            .post-item h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="blog-header">
+        <div class="container">
+            <a href="index.html" class="back-home">← Back to Homepage</a>
+            <h1>Cheptiony's Blog: The Archive</h1>
+            <p>A repository of insights on freelancing, video, business, and tech.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search posts by title or keyword...">
+        </div>
+
+        <ul class="post-list" id="postList">
+            <!-- Dynamically generated list items for converted posts -->
+            <li class="post-item" data-search="3 reasons why you should not subcontract a project you are halfway working on freelancing tips november 21 2018">
+                <a href="blog/3-reasons-not-to-subcontract.html">
+                    <h2>3 Reasons Why You Should not Subcontract a Project you are Halfway Working on</h2>
+                    <div class="post-meta">
+                        <span class="category">Freelancing Tips</span>
+                        <span>Nov 21, 2018</span>
+                    </div>
+                    <p class="post-excerpt">Why you should avoid assigning projects you've already started to another freelancer, and how to manage the workload with your client instead.</p>
+                </a>
+            </li>
+            <li class="post-item" data-search="3 possible ways to invest your earned income online in todays economy investing business march 8 2023">
+                <a href="blog/3-ways-to-invest-earned-income.html">
+                    <h2>3 Possible Ways To Invest Your Earned Income Online In Todays Economy</h2>
+                    <div class="post-meta">
+                        <span class="category">Investing, Business</span>
+                        <span>Mar 8, 2023</span>
+                    </div>
+                    <p class="post-excerpt">Exploring blogging, Mobile Apps/SaaS, and website services as effective long-term investment vehicles for online earnings.</p>
+                </a>
+            </li>
+            <li class="post-item" data-search="3 overlooked golden rules to succeed in freelancing july 11 2019">
+                <a href="blog/3-overlooked-golden-rules-to-succeed.html">
+                    <h2>3 Overlooked 'Golden Rules To Succeed' in Freelancing</h2>
+                    <div class="post-meta">
+                        <span class="category">Freelancing</span>
+                        <span>Jul 11, 2019</span>
+                    </div>
+                    <p class="post-excerpt">Simple, powerful rules for succeeding in the freelance world, focusing on repetition, niche specificity, and providing value.</p>
+                </a>
+            </li>
+            <li class="post-item" data-search="3 marketing tools and services you need in your online business today marketing february 15 2023">
+                <a href="blog/3-marketing-tools-and-services.html">
+                    <h2>3 Marketing Tools And Services You Need In Your Online Business Today</h2>
+                    <div class="post-meta">
+                        <span class="category">Marketing</span>
+                        <span>Feb 15, 2023</span>
+                    </div>
+                    <p class="post-excerpt">The essential marketing tools (Email, Advertising, and Content Creation) required to stand out in the competitive online business environment.</p>
+                </a>
+            </li>
+            <li class="post-item" data-search="3 keywords that will attract qualified freelancers to your job hiring december 12 2018">
+                <a href="blog/3-keywords-to-attract-freelancers.html">
+                    <h2>3 Keywords that will Attract Qualified Freelancers to Your Job</h2>
+                    <div class="post-meta">
+                        <span class="category">Hiring Freelancers</span>
+                        <span>Dec 12, 2018</span>
+                    </div>
+                    <p class="post-excerpt">How to write clear job posts using strategic keywords to filter applications and quickly attract the best freelance talent.</p>
+                </a>
+            </li>
+            <li class="post-item" data-search="why i closed a successful business to start over entrepreneurship december 15 2020">
+                <a href="blog/why-i-closed-a-successful-business.html">
+                    <h2>Why I Closed a Successful Business to Start Over</h2>
+                    <div class="post-meta">
+                        <span class="category">Entrepreneurship</span>
+                        <span>Dec 15, 2020</span>
+                    </div>
+                    <p class="post-excerpt">The strategic decision to close Trendline Network Ltd. based on the 80/20 rule, reducing overhead, and aligning with the pursuit of freedom and scalable tech.</p>
+                </a>
+            </li>
+            <li class="post-item" data-search="3 common video editing mistakes that most beginners make video production february 23 2022">
+                <a href="blog/3-common-video-editing-mistakes.html">
+                    <h2>3 Common Video Editing Mistakes That Most Beginners Make</h2>
+                    <div class="post-meta">
+                        <span class="category">Video Production</span>
+                        <span>Feb 23, 2022</span>
+                    </div>
+                    <p class="post-excerpt">Tips on avoiding poor audio balance, overuse of effects, and bad text/graphic design in video editing projects.</p>
+                </a>
+            </li>
+            <li class="post-item" data-search="how to start an online business in kenya and its cost business july 7 2022">
+                <a href="blog/how-to-start-online-business-kenya.html">
+                    <h2>How to Start An Online Business In Kenya and Its Cost</h2>
+                    <div class="post-meta">
+                        <span class="category">Business</span>
+                        <span>Jul 7, 2022</span>
+                    </div>
+                    <p class="post-excerpt">A comprehensive, step-by-step guide to setting up and estimating the initial cost of a legitimate online business in Kenya.</p>
+                </a>
+            </li>
+            <li class="post-item" data-search="3 commonly used styles to splice up video presentations video production january 3 2019">
+                <a href="blog/3-styles-to-splice-up-video.html">
+                    <h2>3 Commonly Used Styles to Splice Up Video Presentations</h2>
+                    <div class="post-meta">
+                        <span class="category">Video Production</span>
+                        <span>Jan 3, 2019</span>
+                    </div>
+                    <p class="post-excerpt">Techniques like custom transitions, video effects, and sound effects to create 'Pattern Interruption' and keep viewers engaged.</p>
+                </a>
+            </li>
+            <li class="post-item" data-search="five areas in business that instructional video guides are used instructional video guides april 17 2018">
+                <a href="blog/five-areas-in-business.html">
+                    <h2>Five Areas in Business that Instructional Video Guides are Used</h2>
+                    <div class="post-meta">
+                        <span class="category">Instructional Video Guides</span>
+                        <span>Apr 17, 2018</span>
+                    </div>
+                    <p class="post-excerpt">Explaining the critical need for instructional videos in demonstrating software, mobile apps, web-hosted services, and hardware/software setups.</p>
+                </a>
+            </li>
+            
+            <!-- Placeholder for the remaining 90+ articles -->
+            <li class="post-item post-placeholder" data-search="more posts from the archive">
+                <a href="#">
+                    <h2>... And 90+ More Articles in the Archive</h2>
+                    <div class="post-meta">
+                        <span class="category">Coming Soon</span>
+                        <span>All Years</span>
+                    </div>
+                    <p class="post-excerpt">These posts will be added as we continue the conversion process! Use the search bar to filter the current list.</p>
+                </a>
+            </li>
+        </ul>
+
+    </main>
+    
+    <footer class="footer">
+        &copy; 2025 Cheptiony. All rights reserved.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const postList = document.getElementById('postList');
+            const postItems = postList.querySelectorAll('.post-item');
+
+            searchInput.addEventListener('keyup', () => {
+                const filter = searchInput.value.toLowerCase();
+                
+                postItems.forEach(item => {
+                    // Check the consolidated data-search attribute
+                    const searchData = item.getAttribute('data-search').toLowerCase();
+                    
+                    if (searchData.includes(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
