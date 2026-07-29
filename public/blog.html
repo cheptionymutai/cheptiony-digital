@@ -1,306 +1,334 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheptiony's Blog Archive | Insights & Resources</title>
-    <style>
-        /* Theme Colors: #091943 (Dark Blue), #2463eb (Bright Blue), #F3F4F6 (Light Gray), #16A249 (Green), #FFFFFF (White) */
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F3F4F6;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
-
-        /* Header Styles */
-        .blog-header {
-            background-color: #091943; /* Dark Blue */
-            color: #FFFFFF;
-            padding: 40px 20px;
-            text-align: center;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .blog-header h1 {
-            font-size: 2.5rem;
-            margin-top: 0;
-            margin-bottom: 5px;
-        }
-        .blog-header p {
-            font-size: 1.1rem;
-            color: #F3F4F6;
-        }
-        .back-home {
-            color: #2463eb;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 15px;
-        }
-        .back-home:hover {
-            color: #FFFFFF;
-            text-decoration: underline;
-        }
-
-        /* Search Bar */
-        .search-bar {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        #searchInput {
-            width: 100%;
-            max-width: 600px;
-            padding: 15px 20px;
-            border: 2px solid #ccc;
-            border-radius: 25px;
-            font-size: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05) inset;
-            transition: border-color 0.3s;
-        }
-        #searchInput:focus {
-            border-color: #2463eb;
-            outline: none;
-        }
-
-        /* Post List */
-        .post-list {
-            list-style: none;
-            padding: 0;
-        }
-        .post-item {
-            background: #FFFFFF;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
-        .post-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .post-item a {
-            text-decoration: none;
-            color: #091943;
-            display: block;
-        }
-        .post-item h2 {
-            font-size: 1.5rem;
-            margin: 0 0 10px 0;
-            color: #2463eb; /* Bright Blue */
-            transition: color 0.2s;
-        }
-        .post-item:hover h2 {
-            color: #091943; /* Dark Blue on hover */
-        }
-        .post-meta {
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 10px;
-        }
-        .post-meta .category {
-            background-color: #F3F4F6;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: 500;
-            color: #333;
-            margin-right: 10px;
-        }
-        .post-excerpt {
-            color: #555;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #777;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 600px) {
-            .blog-header h1 {
-                font-size: 2rem;
-            }
-            .post-item h2 {
-                font-size: 1.25rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Insights on AI video strategy, hybrid production, business growth, and mindset — from Cheptiony Mutai.">
+  <title>Insights — Cheptiony Mutai</title>
+  <link rel="icon" href="/cheptiony-favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #060c18; }
+    .line-clamp-2 { display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden; }
+    .line-clamp-3 { display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden; }
+    .cat-active { background:rgba(34,211,238,0.1); border-color:#22d3ee !important; color:#22d3ee; }
+    .cat-inactive { border-color:#1a3050; color:#94a3b8; }
+    .cat-inactive:hover { border-color:#2a4060; color:#fff; }
+  </style>
 </head>
-<body>
+<body class="text-white antialiased">
 
-    <header class="blog-header">
-        <div class="container">
-            <a href="index.html" class="back-home">← Back to Homepage</a>
-            <h1>Cheptiony's Blog: The Archive</h1>
-            <p>A repository of insights on freelancing, video, business, and tech.</p>
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-50 border-b" style="background:rgba(6,12,24,0.97);border-color:#1a3050;backdrop-filter:blur(12px)">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="/"><img src="/cheptiony-logo.png" alt="Cheptiony Mutai" class="h-9"></a>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a href="/" class="text-slate-400 hover:text-white transition">Home</a>
+      <a href="/journey.html" class="text-slate-400 hover:text-white transition">Journey</a>
+      <a href="/blog.html" class="text-cyan-400">Insights</a>
+      <a href="/contact.html" class="text-slate-400 hover:text-white transition">Contact</a>
+      <div class="relative group">
+        <button class="text-slate-400 hover:text-white transition flex items-center gap-1">Ventures <span class="text-xs opacity-60">▾</span></button>
+        <div class="absolute right-0 top-full mt-2 w-56 rounded-2xl shadow-2xl py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+             style="background:#0c1628;border:1px solid #1a3050">
+          <a href="https://techtubestudio.com" target="_blank" class="flex items-center gap-2 px-4 py-2.5 text-slate-300 hover:text-white hover:bg-[#152036] text-sm transition">📹 Techtube Studio</a>
+          <a href="https://paretoprofit.cheptiony.com/" target="_blank" class="flex items-center gap-2 px-4 py-2.5 text-slate-300 hover:text-white hover:bg-[#152036] text-sm transition">💰 Pareto Profit</a>
+          <a href="/renewed-mind.html" class="flex items-center gap-2 px-4 py-2.5 text-slate-300 hover:text-white hover:bg-[#152036] text-sm transition">📖 Renewed Mind Guide</a>
+          <a href="/book.html" class="flex items-center gap-2 px-4 py-2.5 text-slate-300 hover:text-white hover:bg-[#152036] text-sm transition">✍️ From Freelance to Fortune</a>
         </div>
-    </header>
+      </div>
+      <a href="https://techtubestudio.com" target="_blank"
+         class="bg-cyan-500 hover:bg-cyan-400 font-bold px-5 py-2 rounded-lg transition text-sm"
+         style="color:#060c18">Hire the Agency →</a>
+    </div>
+    <button id="menu-btn" class="md:hidden text-slate-400 hover:text-white p-1">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-4 py-4 space-y-1 text-sm border-t" style="border-color:#1a3050">
+    <a href="/" class="block text-slate-400 hover:text-white py-2 transition">Home</a>
+    <a href="/journey.html" class="block text-slate-400 hover:text-white py-2 transition">Journey</a>
+    <a href="/blog.html" class="block text-cyan-400 font-medium py-2">Insights</a>
+    <a href="/contact.html" class="block text-slate-400 hover:text-white py-2 transition">Contact</a>
+    <div class="border-t pt-3 mt-2" style="border-color:#1a3050">
+      <a href="https://techtubestudio.com" target="_blank" class="block text-slate-400 hover:text-white py-1.5">📹 Techtube Studio</a>
+      <a href="https://paretoprofit.cheptiony.com/" target="_blank" class="block text-slate-400 hover:text-white py-1.5">💰 Pareto Profit</a>
+      <a href="/renewed-mind.html" class="block text-slate-400 hover:text-white py-1.5">📖 Renewed Mind Guide</a>
+      <a href="/book.html" class="block text-slate-400 hover:text-white py-1.5">✍️ From Freelance to Fortune</a>
+    </div>
+    <a href="https://techtubestudio.com" target="_blank"
+       class="block bg-cyan-500 font-bold px-4 py-3 rounded-xl text-center mt-3 text-sm"
+       style="color:#060c18">Hire the Agency →</a>
+  </div>
+</nav>
 
-    <main class="container">
-        
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search posts by title or keyword...">
+<!-- HEADER -->
+<section class="pt-32 pb-8 px-4">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-cyan-400 text-sm font-medium uppercase tracking-widest mb-3">The Blog</p>
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+      <h1 class="text-4xl md:text-5xl font-black">Insights</h1>
+      <p class="text-slate-400 max-w-md text-sm leading-relaxed">
+        AI video strategy, hybrid production, building a media business,
+        and the mindset behind sustainable growth.
+      </p>
+    </div>
+
+    <!-- ── Search bar ── -->
+    <div class="relative max-w-xl mb-8">
+      <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none"
+           fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      </svg>
+      <input type="text" id="search-input" placeholder="Search articles..."
+             class="w-full pl-11 pr-4 py-3 rounded-xl text-white text-sm placeholder-slate-600 focus:outline-none transition"
+             style="background:#0c1628;border:1px solid #1a3050"
+             onfocus="this.style.borderColor='#22d3ee'" onblur="this.style.borderColor='#1a3050'">
+      <button id="search-clear" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition text-lg leading-none">✕</button>
+    </div>
+
+    <!-- ── Category filters ── -->
+    <div class="flex flex-wrap gap-2" id="category-filters">
+      <button onclick="setFilter('all')" data-cat="all"
+              class="cat-btn cat-active px-4 py-1.5 rounded-full text-sm font-medium border transition">All</button>
+      <button onclick="setFilter('business')" data-cat="business"
+              class="cat-btn cat-inactive px-4 py-1.5 rounded-full text-sm font-medium border transition">Business</button>
+      <button onclick="setFilter('video')" data-cat="video"
+              class="cat-btn cat-inactive px-4 py-1.5 rounded-full text-sm font-medium border transition">Video & AI</button>
+      <button onclick="setFilter('faith')" data-cat="faith"
+              class="cat-btn cat-inactive px-4 py-1.5 rounded-full text-sm font-medium border transition">Reflection Friday</button>
+    </div>
+
+    <!-- Search results label -->
+    <p id="search-label" class="hidden text-slate-500 text-sm mt-4"></p>
+  </div>
+</section>
+
+<!-- POSTS -->
+<section class="pb-24 px-4">
+  <div class="max-w-6xl mx-auto">
+    <!-- Featured post -->
+    <div id="featured-post" class="mb-8"></div>
+    <!-- Grid -->
+    <div id="posts-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <!-- Empty / no results -->
+    <div id="empty-state" class="hidden text-center py-16">
+      <p class="text-slate-500 text-sm">No articles found. Try a different search or category.</p>
+    </div>
+    <!-- Loading skeletons -->
+    <div id="loading" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl h-72 animate-pulse" style="background:#0c1628;border:1px solid #1a3050"></div>
+      <div class="rounded-2xl h-72 animate-pulse" style="background:#0c1628;border:1px solid #1a3050"></div>
+      <div class="rounded-2xl h-72 animate-pulse" style="background:#0c1628;border:1px solid #1a3050"></div>
+      <div class="rounded-2xl h-72 animate-pulse" style="background:#0c1628;border:1px solid #1a3050"></div>
+      <div class="rounded-2xl h-72 animate-pulse" style="background:#0c1628;border:1px solid #1a3050"></div>
+      <div class="rounded-2xl h-72 animate-pulse" style="background:#0c1628;border:1px solid #1a3050"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-16 px-4 border-t" style="background:#0a1220;border-color:#1a3050">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-black mb-4">Want Strategy, Not Just Articles?</h2>
+    <p class="text-slate-400 text-sm leading-relaxed mb-8">
+      Book a 1-on-1 consulting session and let's build a custom video strategy for your business — not generic advice, a real plan.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="/contact.html" class="bg-cyan-500 hover:bg-cyan-400 font-bold px-6 py-3 rounded-xl transition text-sm" style="color:#060c18">Book a Consulting Session →</a>
+      <a href="https://techtubestudio.com" target="_blank"
+         class="font-semibold px-6 py-3 rounded-xl transition text-sm text-white border"
+         style="background:#0c1628;border-color:#1a3050">Hire the Agency</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t pt-16 pb-8 px-4" style="background:#060c18;border-color:#1a3050">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2">
+        <img src="/cheptiony-logo.png" alt="Cheptiony Mutai" class="h-10 mb-4">
+        <p class="text-slate-400 text-sm leading-relaxed max-w-sm">Strategic media consultant. 15 years turning businesses into media brands through video strategy, AI production, and content systems.</p>
+        <div class="flex flex-wrap items-center gap-4 mt-6 text-slate-500 text-sm">
+          <a href="https://x.com/cheptionymutai" target="_blank" class="hover:text-cyan-400 transition">𝕏 Twitter</a>
+          <a href="https://ke.linkedin.com/in/cheptionymutai" target="_blank" class="hover:text-cyan-400 transition">LinkedIn</a>
+          <a href="https://www.youtube.com/@cheptionymutai" target="_blank" class="hover:text-cyan-400 transition">YouTube</a>
+          <a href="https://wa.me/254712828453" target="_blank" class="hover:text-cyan-400 transition">WhatsApp</a>
+          <a href="mailto:connect@cheptiony.com" class="hover:text-cyan-400 transition">Email</a>
+          <!-- TikTok: Replace YOUR_TIKTOK_HANDLE once you have it
+          <a href="https://tiktok.com/@YOUR_TIKTOK_HANDLE" target="_blank" class="hover:text-cyan-400 transition">TikTok</a>
+          -->
         </div>
-
-        <ul class="post-list" id="postList">
-            <!-- Dynamically generated list items for converted posts -->
-            <li class="post-item" data-search="3 reasons why you should not subcontract a project you are halfway working on freelancing tips november 21 2018">
-                <a href="blog/3-reasons-not-to-subcontract.html">
-                    <h2>3 Reasons Why You Should not Subcontract a Project you are Halfway Working on</h2>
-                    <div class="post-meta">
-                        <span class="category">Freelancing Tips</span>
-                        <span>Nov 21, 2018</span>
-                    </div>
-                    <p class="post-excerpt">Why you should avoid assigning projects you've already started to another freelancer, and how to manage the workload with your client instead.</p>
-                </a>
-            </li>
-            <li class="post-item" data-search="3 possible ways to invest your earned income online in todays economy investing business march 8 2023">
-                <a href="blog/3-ways-to-invest-earned-income.html">
-                    <h2>3 Possible Ways To Invest Your Earned Income Online In Todays Economy</h2>
-                    <div class="post-meta">
-                        <span class="category">Investing, Business</span>
-                        <span>Mar 8, 2023</span>
-                    </div>
-                    <p class="post-excerpt">Exploring blogging, Mobile Apps/SaaS, and website services as effective long-term investment vehicles for online earnings.</p>
-                </a>
-            </li>
-            <li class="post-item" data-search="3 overlooked golden rules to succeed in freelancing july 11 2019">
-                <a href="blog/3-overlooked-golden-rules-to-succeed.html">
-                    <h2>3 Overlooked 'Golden Rules To Succeed' in Freelancing</h2>
-                    <div class="post-meta">
-                        <span class="category">Freelancing</span>
-                        <span>Jul 11, 2019</span>
-                    </div>
-                    <p class="post-excerpt">Simple, powerful rules for succeeding in the freelance world, focusing on repetition, niche specificity, and providing value.</p>
-                </a>
-            </li>
-            <li class="post-item" data-search="3 marketing tools and services you need in your online business today marketing february 15 2023">
-                <a href="blog/3-marketing-tools-and-services.html">
-                    <h2>3 Marketing Tools And Services You Need In Your Online Business Today</h2>
-                    <div class="post-meta">
-                        <span class="category">Marketing</span>
-                        <span>Feb 15, 2023</span>
-                    </div>
-                    <p class="post-excerpt">The essential marketing tools (Email, Advertising, and Content Creation) required to stand out in the competitive online business environment.</p>
-                </a>
-            </li>
-            <li class="post-item" data-search="3 keywords that will attract qualified freelancers to your job hiring december 12 2018">
-                <a href="blog/3-keywords-to-attract-freelancers.html">
-                    <h2>3 Keywords that will Attract Qualified Freelancers to Your Job</h2>
-                    <div class="post-meta">
-                        <span class="category">Hiring Freelancers</span>
-                        <span>Dec 12, 2018</span>
-                    </div>
-                    <p class="post-excerpt">How to write clear job posts using strategic keywords to filter applications and quickly attract the best freelance talent.</p>
-                </a>
-            </li>
-            <li class="post-item" data-search="why i closed a successful business to start over entrepreneurship december 15 2020">
-                <a href="blog/why-i-closed-a-successful-business.html">
-                    <h2>Why I Closed a Successful Business to Start Over</h2>
-                    <div class="post-meta">
-                        <span class="category">Entrepreneurship</span>
-                        <span>Dec 15, 2020</span>
-                    </div>
-                    <p class="post-excerpt">The strategic decision to close Trendline Network Ltd. based on the 80/20 rule, reducing overhead, and aligning with the pursuit of freedom and scalable tech.</p>
-                </a>
-            </li>
-            <li class="post-item" data-search="3 common video editing mistakes that most beginners make video production february 23 2022">
-                <a href="blog/3-common-video-editing-mistakes.html">
-                    <h2>3 Common Video Editing Mistakes That Most Beginners Make</h2>
-                    <div class="post-meta">
-                        <span class="category">Video Production</span>
-                        <span>Feb 23, 2022</span>
-                    </div>
-                    <p class="post-excerpt">Tips on avoiding poor audio balance, overuse of effects, and bad text/graphic design in video editing projects.</p>
-                </a>
-            </li>
-            <li class="post-item" data-search="how to start an online business in kenya and its cost business july 7 2022">
-                <a href="blog/how-to-start-online-business-kenya.html">
-                    <h2>How to Start An Online Business In Kenya and Its Cost</h2>
-                    <div class="post-meta">
-                        <span class="category">Business</span>
-                        <span>Jul 7, 2022</span>
-                    </div>
-                    <p class="post-excerpt">A comprehensive, step-by-step guide to setting up and estimating the initial cost of a legitimate online business in Kenya.</p>
-                </a>
-            </li>
-            <li class="post-item" data-search="3 commonly used styles to splice up video presentations video production january 3 2019">
-                <a href="blog/3-styles-to-splice-up-video.html">
-                    <h2>3 Commonly Used Styles to Splice Up Video Presentations</h2>
-                    <div class="post-meta">
-                        <span class="category">Video Production</span>
-                        <span>Jan 3, 2019</span>
-                    </div>
-                    <p class="post-excerpt">Techniques like custom transitions, video effects, and sound effects to create 'Pattern Interruption' and keep viewers engaged.</p>
-                </a>
-            </li>
-            <li class="post-item" data-search="five areas in business that instructional video guides are used instructional video guides april 17 2018">
-                <a href="blog/five-areas-in-business.html">
-                    <h2>Five Areas in Business that Instructional Video Guides are Used</h2>
-                    <div class="post-meta">
-                        <span class="category">Instructional Video Guides</span>
-                        <span>Apr 17, 2018</span>
-                    </div>
-                    <p class="post-excerpt">Explaining the critical need for instructional videos in demonstrating software, mobile apps, web-hosted services, and hardware/software setups.</p>
-                </a>
-            </li>
-            
-            <!-- Placeholder for the remaining 90+ articles -->
-            <li class="post-item post-placeholder" data-search="more posts from the archive">
-                <a href="#">
-                    <h2>... And 90+ More Articles in the Archive</h2>
-                    <div class="post-meta">
-                        <span class="category">Coming Soon</span>
-                        <span>All Years</span>
-                    </div>
-                    <p class="post-excerpt">These posts will be added as we continue the conversion process! Use the search bar to filter the current list.</p>
-                </a>
-            </li>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Site</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="/" class="hover:text-white transition">Home</a></li>
+          <li><a href="/journey.html" class="hover:text-white transition">My Journey</a></li>
+          <li><a href="/blog.html" class="hover:text-white transition">Insights</a></li>
+          <li><a href="/contact.html" class="hover:text-white transition">Contact</a></li>
+          <li><a href="/privacypolicy.html" class="hover:text-white transition">Privacy Policy</a></li>
         </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Ventures</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="https://techtubestudio.com" target="_blank" class="hover:text-white transition">Techtube Studio</a></li>
+          <li><a href="https://paretoprofit.cheptiony.com/" target="_blank" class="hover:text-white transition">Pareto Profit</a></li>
+          <li><a href="/renewed-mind.html" class="hover:text-white transition">Renewed Mind Guide</a></li>
+          <li><a href="/book.html" class="hover:text-white transition">From Freelance to Fortune</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t pt-6 text-center text-sm text-slate-600" style="border-color:#1a3050">
+      © 2026 Cheptiony Mutai. All rights reserved. | Built with Focus and Strategy.
+    </div>
+  </div>
+</footer>
 
-    </main>
-    
-    <footer class="footer">
-        &copy; 2025 Cheptiony. All rights reserved.
-    </footer>
+<script>
+  document.getElementById('menu-btn').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.getElementById('searchInput');
-            const postList = document.getElementById('postList');
-            const postItems = postList.querySelectorAll('.post-item');
+  // ── Category keyword map ────────────────────────────────────
+  const CATS = {
+    business: ['freelance','business','profit','pareto','career','income','entrepreneur','micro1','privacy','ai prompt','legal','consent'],
+    video:    ['video','production','hybrid','youtube','screencast','ai video','content','marketing'],
+    faith:    ['reflection','friday','abram','jasher','bible','faith','god','prayer','psalm','spiritual','renewed mind','abundance']
+  };
+  function categorise(post) {
+    const t = (post.title + ' ' + post.content).toLowerCase();
+    for (const [cat, kws] of Object.entries(CATS)) {
+      if (kws.some(kw => t.includes(kw))) return cat;
+    }
+    return 'business';
+  }
 
-            searchInput.addEventListener('keyup', () => {
-                const filter = searchInput.value.toLowerCase();
-                
-                postItems.forEach(item => {
-                    // Check the consolidated data-search attribute
-                    const searchData = item.getAttribute('data-search').toLowerCase();
-                    
-                    if (searchData.includes(filter)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-    </script>
+  function excerpt(html, max = 150) {
+    return html.replace(/<[^>]+>/g,'').replace(/https?:\/\/[^\s]+/g,'').replace(/\s+/g,' ').trim().slice(0,max) + '...';
+  }
 
+  function cardHTML(p) {
+    return `
+      <a href="/blog/${p.slug}.html"
+         class="group block rounded-2xl overflow-hidden transition-all duration-300"
+         style="background:#0c1628;border:1px solid #1a3050"
+         onmouseover="this.style.borderColor='rgba(34,211,238,0.35)'"
+         onmouseout="this.style.borderColor='#1a3050'">
+        <div class="aspect-video overflow-hidden" style="background:#0f1e30">
+          <img src="${p.featured_image}" alt="${p.title}"
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+               onerror="this.parentElement.style.display='none'">
+        </div>
+        <div class="p-6">
+          <p class="text-cyan-400 text-xs font-medium mb-2">${p.date}</p>
+          <h3 class="text-white font-bold text-base leading-snug group-hover:text-cyan-400 transition mb-3 line-clamp-2">${p.title}</h3>
+          <p class="text-slate-500 text-sm leading-relaxed line-clamp-3">${excerpt(p.content)}</p>
+        </div>
+      </a>`;
+  }
+
+  function featuredHTML(p) {
+    return `
+      <a href="/blog/${p.slug}.html"
+         class="group flex flex-col md:flex-row rounded-2xl overflow-hidden transition-all duration-300"
+         style="background:#0c1628;border:1px solid #1a3050"
+         onmouseover="this.style.borderColor='rgba(34,211,238,0.35)'"
+         onmouseout="this.style.borderColor='#1a3050'">
+        <div class="md:w-2/5 aspect-video md:aspect-auto overflow-hidden" style="background:#0f1e30">
+          <img src="${p.featured_image}" alt="${p.title}"
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+               onerror="this.parentElement.style.display='none'">
+        </div>
+        <div class="flex-1 p-8 flex flex-col justify-center">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full" style="background:rgba(34,211,238,0.1);border:1px solid rgba(34,211,238,0.2);color:#22d3ee">Latest</span>
+            <span class="text-slate-500 text-xs">${p.date}</span>
+          </div>
+          <h2 class="text-white font-black text-xl md:text-2xl leading-snug group-hover:text-cyan-400 transition mb-4 line-clamp-2">${p.title}</h2>
+          <p class="text-slate-400 text-sm leading-relaxed mb-5 line-clamp-3">${excerpt(p.content, 220)}</p>
+          <span class="text-cyan-400 text-sm font-semibold group-hover:text-cyan-300 transition">Read article →</span>
+        </div>
+      </a>`;
+  }
+
+  // ── State ───────────────────────────────────────────────────
+  let allPosts  = [];
+  let activeCat = 'all';
+  let searchQ   = '';
+
+  function filtered() {
+    return allPosts.filter(p => {
+      const catOk = activeCat === 'all' || categorise(p) === activeCat;
+      const qOk   = !searchQ || (p.title + ' ' + p.content).toLowerCase().includes(searchQ);
+      return catOk && qOk;
+    });
+  }
+
+  function render() {
+    const posts = filtered();
+    const feat  = document.getElementById('featured-post');
+    const grid  = document.getElementById('posts-grid');
+    const empty = document.getElementById('empty-state');
+    const label = document.getElementById('search-label');
+
+    if (searchQ) {
+      label.textContent = `${posts.length} result${posts.length !== 1 ? 's' : ''} for "${searchQ}"`;
+      label.classList.remove('hidden');
+    } else {
+      label.classList.add('hidden');
+    }
+
+    if (posts.length === 0) {
+      feat.innerHTML = ''; grid.innerHTML = '';
+      empty.classList.remove('hidden'); return;
+    }
+    empty.classList.add('hidden');
+    feat.innerHTML  = featuredHTML(posts[0]);
+    grid.innerHTML  = posts.slice(1).map(cardHTML).join('');
+  }
+
+  // ── Category filter ─────────────────────────────────────────
+  function setFilter(cat) {
+    activeCat = cat;
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      const on = btn.dataset.cat === cat;
+      btn.className = 'cat-btn px-4 py-1.5 rounded-full text-sm font-medium border transition ' + (on ? 'cat-active' : 'cat-inactive');
+    });
+    render();
+  }
+
+  // ── Search ──────────────────────────────────────────────────
+  let debounce;
+  document.getElementById('search-input').addEventListener('input', e => {
+    searchQ = e.target.value.trim().toLowerCase();
+    document.getElementById('search-clear').classList.toggle('hidden', !searchQ);
+    clearTimeout(debounce);
+    debounce = setTimeout(render, 250);
+  });
+  document.getElementById('search-clear').addEventListener('click', () => {
+    document.getElementById('search-input').value = '';
+    searchQ = '';
+    document.getElementById('search-clear').classList.add('hidden');
+    render();
+  });
+
+  // ── Load posts ──────────────────────────────────────────────
+  fetch('/all_posts.json')
+    .then(r => r.json())
+    .then(posts => {
+      allPosts = posts;
+      document.getElementById('loading').remove();
+      render();
+    })
+    .catch(() => {
+      document.getElementById('loading').innerHTML =
+        '<p class="text-slate-500 col-span-3 text-center py-12">Could not load posts. Please refresh the page.</p>';
+    });
+</script>
 </body>
 </html>

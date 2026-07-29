@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBGRZGJ5YW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BBGRZGJ5YW');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insight | Cheptiony Mutai</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="/">
+                    <img src="/cheptiony_logo.png" onerror="this.onerror=null; this.src='https://placehold.co/150x40/091943/FFFFFF?text=CHEP-MUTAI'" alt="Cheptiony Mutai Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" style="display:none !important;">
+            <label for="menu-toggle" class="menu-label" style="display:none; color:#FFFFFF; font-size:2.2rem; cursor:pointer; padding:5px; order:2;">☰</label>
+
+            <nav>
+                <div class="nav-item"><a href="/" class="nav-link">Home</a></div>
+                <div class="nav-item"><a href="/journey" class="nav-link">Journey</a></div>
+                <div class="nav-item"><a href="/work" class="nav-link">Work With Me</a></div>
+                <div class="nav-item"><a href="https://paretoprofit.cheptiony.com/" class="nav-link" target="_blank" rel="noopener noreferrer">Pareto Profit</a></div>
+                <div class="nav-item"><a href="/book" class="nav-link">Book</a></div>
+                <div class="nav-item"><a href="/renewed-mind" class="nav-link">Renewed Mind</a></div>
+                <div class="nav-item"><a href="/blog" class="nav-link">Blog</a></div>
+                <div class="nav-item"><a href="/contact" class="nav-link">Contact</a></div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="reading-experience">
+        <div id="toc-container"></div>
+        
+        <div id="post-display">
+            <p style="text-align: center; padding: 50px;">Loading article...</p>
+        </div>
+
+        <div class="share-container">
+            <p><strong>Share this insight:</strong></p>
+            <div class="share-buttons">
+                <a href="#" id="share-x" target="_blank" class="share-btn">𝕏 Post</a>
+                <a href="#" id="share-linkedin" target="_blank" class="share-btn">LinkedIn</a>
+                <a href="#" id="share-whatsapp" target="_blank" class="share-btn">WhatsApp</a>
+                <button onclick="copyLink()" class="share-btn">Copy Link</button>
+            </div>
+        </div>
+        
+        <section class="related-section" style="margin-top: 60px; border-top: 1px solid #eee; padding-top: 40px;">
+            <h3 style="margin-bottom: 25px; color: #091943;">Other Articles You Might Like</h3>
+            <div id="related-posts" class="grid-container"></div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column">
+                <h3>Cheptiony Mutai - Strategic Media Consultant</h3>
+                <p>I help ambitious businesses scale their growth through data-driven AI strategy and high-impact hybrid production. My mission is focused on maximizing your digital ROI.</p>
+                <div class="social-links">
+                    <a href="http://twitter.com/cheptiony" target="_blank" aria-label="Follow me on X/Twitter">𝕏</a>
+                    <a href="https://ke.linkedin.com/in/cheptionymutai" target="_blank" aria-label="Connect with me on LinkedIn">in</a>
+                    <a href="https://www.youtube.com/@cheptionymutai" target="_blank" aria-label="Subscribe to my YouTube channel">▶</a>
+                    <a href="https://wa.me/254712828453" target="_blank" class="whatsapp-icon" aria-label="Chat with me on WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="background-color: #25D366; color: white; border-radius: 5px; padding: 2px; width: 1.5rem; height: 1.5rem;">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </a>
+                    <a href="mailto:connect@cheptiony.com" aria-label="Email me">✉</a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="/">Home</a>
+                <a href="/journey">My Journey</a>
+                <a href="/blog">Blog Archive</a>
+                <a href="/contact">Contact</a>
+                <a href="/privacypolicy">Privacy Policy</a>
+                <a href="https://techtubestudio.com" target="_blank">Techtube Video Studio (Agency)</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Business Solutions</h3>
+                <a href="https://paretoprofit.cheptiony.com/" target="_blank">Pareto Profit App</a>
+                <a href="https://techtubestudio.com" target="_blank">AI & Hybrid Production</a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2026 Cheptiony Mutai. All rights reserved. | Built with Focus and Strategy.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Link copied to clipboard!");
+        }
+
+        function cleanAndFormat(content) {
+            if (!content) return "";
+            let cleaned = content.replace(/watch video|online link/gi, '');
+            const ytRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/g;
+            
+            return cleaned.replace(ytRegex, (match, videoId) => {
+                const thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                return `
+                    <div class="video-container-wrapper">
+                        <div class="video-link-card" onclick="openVideo('${videoId}')" style="cursor:pointer;">
+                            <div class="video-thumbnail" style="background-image: url('${thumb}')">
+                                <div class="play-overlay"><div class="play-button-icon">▶</div><span>WATCH TUTORIAL</span></div>
+                            </div>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        function openVideo(videoId) {
+            const overlay = document.createElement('div');
+            overlay.id = 'video-lightbox';
+            overlay.innerHTML = `<div class="lightbox-content"><span class="close-video" onclick="closeVideo()">&times;</span><iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>`;
+            document.body.appendChild(overlay);
+        }
+
+        function closeVideo() { document.getElementById('video-lightbox')?.remove(); }
+
+        async function loadPost() {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                let slug = params.get('slug')?.trim();
+                
+                if (!slug) {
+                    const pathParts = window.location.pathname.split('/').filter(p => p);
+                    slug = pathParts[pathParts.length - 1]; 
+                }
+
+                const response = await fetch('/all_posts.json'); 
+                const posts = await response.json();
+                const post = posts.find(p => p.slug === slug) || posts.find(p => p.slug?.toLowerCase() === slug?.toLowerCase());
+
+                if (post) {
+                    document.title = post.title + " | Cheptiony";
+                    
+                    // SEO: SET CANONICAL LINK
+                    let canonical = document.querySelector('link[rel="canonical"]');
+                    if (!canonical) {
+                        canonical = document.createElement('link');
+                        canonical.rel = 'canonical';
+                        document.head.appendChild(canonical);
+                    }
+                    canonical.href = `https://cheptiony.com/${post.slug}`;
+
+                    const displayArea = document.getElementById('post-display');
+                    displayArea.innerHTML = `
+                        <h1 class="post-title">${post.title}</h1>
+                        <div class="blog-body-text">${cleanAndFormat(post.content)}</div>
+                        <div class="techtube-cta">
+                            <h3>Scale Your Brand with Professional Video</h3>
+                            <a href="https://techtubestudio.com" target="_blank" class="btn-cta">Visit Techtube Studio</a>
+                        </div>`;
+
+                    // Generate TOC
+                    const headings = displayArea.querySelectorAll('h2, h3');
+                    if (headings.length > 2) {
+                        let toc = '<div class="toc-box"><strong>In this article:</strong><ul>';
+                        headings.forEach((h, i) => { h.id = 'section-' + i; toc += `<li><a href="#section-${i}">${h.innerText}</a></li>`; });
+                        toc += '</ul></div>';
+                        document.getElementById('toc-container').innerHTML = toc;
+                    }
+
+                    // Related Posts
+                    const related = posts.filter(p => p.slug !== slug).sort(() => 0.5 - Math.random()).slice(0, 2);
+                    document.getElementById('related-posts').innerHTML = related.map(p => `
+                        <a href="/${p.slug}" class="grid-card">
+                            <div class="grid-image" style="background-image: url('${p.featured_image}')"></div>
+                            <div class="grid-body"><small>${p.date}</small><h3>${p.title}</h3><span class="grid-link">Read More →</span></div>
+                        </a>`).join('');
+
+                    // Trigger AdSense for dynamic content if units are present
+                    (window.adsbygoogle = window.adsbygoogle || []).push({});
+
+                } else {
+                    window.location.href = '/blog';
+                }
+            } catch (e) { console.error(e); }
+        }
+        loadPost();
+
+        // Auto-close mobile navigation menu when a link is clicked
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.querySelectorAll('.navbar nav a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (menuToggle) {
+                        menuToggle.checked = false;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

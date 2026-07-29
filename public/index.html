@@ -1,641 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheptiony Mutai - From Freelance to Fortune</title>
-    <meta name="description" content="Cheptiony Mutai, Digital Media Consultant and author of 'From Freelance to Fortune.' Expert in video production, storytelling, and business strategy.">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
 
-    <!-- Custom CSS for The Cheptiony Digital Consult Theme -->
-    <style>
-        /* Global Reset and Typography */
-        /* Color Palette: #091943 (Dark Blue), #2463eb (Bright Blue), #F3F4F6 (Light Gray), #16A249 (Green), #FFFFFF (White) */
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F3F4F6; /* Light Gray Background */
-            color: #333;
-            line-height: 1.6;
-        }
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/12.16.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/12.16.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/12.16.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/12.16.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/12.16.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/12.16.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/12.16.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/12.16.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/12.16.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/12.16.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        h1, h2, h3 {
-            color: #091943; /* Dark Blue */
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; }
-        h3 { font-size: 1.5rem; }
-
-        a {
-            color: #2463eb; /* Bright Blue */
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: #16a249; /* Green on hover */
-            text-decoration: underline;
-        }
-        
-        /* Utility Classes */
-        .text-center {
-            text-align: center;
-        }
-
-        /* Navigation Bar */
-        .navbar {
-            background-color: #091943; /* Dark Blue */
-            padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar .logo {
-            color: #FFFFFF;
-            font-size: 1.8rem;
-            font-weight: 800;
-        }
-
-        .navbar nav a {
-            color: #FFFFFF;
-            margin-left: 25px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-        
-        .navbar nav a:hover {
-            color: #2463eb;
-            text-decoration: none;
-        }
-
-        /* Hero Section (Cover) */
-        .hero {
-            background-color: #FFFFFF;
-            padding: 80px 0;
-            border-bottom: 5px solid #E0E0E0;
-        }
-
-        .hero .content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .hero-text {
-            flex: 2;
-        }
-
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 50%;
-            border: 8px solid #091943;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .hero .cta-button {
-            display: inline-block;
-            background-color: #2463eb;
-            color: #FFFFFF;
-            padding: 12px 30px;
-            margin-top: 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: background-color 0.3s;
-        }
-
-        .hero .cta-button:hover {
-            background-color: #091943;
-            text-decoration: none;
-        }
-        
-        /* Section Styling */
-        section {
-            padding: 60px 0;
-        }
-
-        /* My Journey Timeline */
-        #story {
-            background-color: #F3F4F6;
-        }
-        #story h2 {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .timeline {
-            list-style: none;
-            padding: 0;
-            border-left: 2px solid #2463eb;
-            margin: 0 auto;
-            max-width: 800px;
-        }
-        .timeline li {
-            position: relative;
-            padding: 15px 0 15px 30px;
-            line-height: 1.4;
-        }
-        .timeline li:before {
-            content: attr(data-year);
-            position: absolute;
-            left: -35px;
-            top: 15px;
-            background: #091943;
-            color: #FFFFFF;
-            padding: 4px 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        .timeline li strong {
-            display: block;
-            color: #091943;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-
-        /* Ventures Grid */
-        #ventures {
-            background-color: #FFFFFF;
-            border-top: 1px solid #E0E0E0;
-        }
-        .ventures-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .venture-card {
-            background-color: #F3F4F6;
-            padding: 25px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: box-shadow 0.3s;
-        }
-        .venture-card:hover {
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-        .venture-card h3 {
-            margin-top: 0;
-            color: #091943;
-        }
-        .venture-link {
-            display: inline-block;
-            color: #FFFFFF;
-            padding: 10px 20px;
-            margin-top: 15px;
-            border-radius: 5px;
-            font-weight: 600;
-        }
-        .venture-link.upwork { background-color: #16A249; } /* Green */
-        .venture-link.youtube { background-color: #FF0000; } /* Red */
-        .venture-link.agency { background-color: #2463eb; } /* Bright Blue */
-
-
-        /* Portfolio/Insights Section */
-        #portfolio {
-            background-color: #F3F4F6;
-            padding-bottom: 80px;
-        }
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .portfolio-item {
-            background-color: #FFFFFF;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-        .portfolio-item h3 {
-            font-size: 1.2rem;
-            margin-top: 0;
-            color: #2463eb;
-        }
-        .portfolio-item .category {
-            font-size: 0.85rem;
-            color: #777;
-            margin-bottom: 15px;
-            display: block;
-        }
-        
-        /* Book Signup Section */
-        #book-signup {
-            background-color: #FFFFFF;
-            padding: 60px 0;
-            border-top: 1px solid #E0E0E0;
-        }
-        .book-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        .book-details {
-            flex: 2;
-        }
-        .book-cover {
-            flex: 1;
-            text-align: center;
-        }
-        .book-cover img {
-            max-width: 200px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-        .signup-form {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .signup-form input[type="email"] {
-            flex-grow: 1;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        .signup-form button {
-            padding: 12px 25px;
-            background-color: #16A249; /* Green for signup CTA */
-            color: #FFFFFF;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .signup-form button:hover {
-            background-color: #091943;
-        }
-
-
-        /* Footer */
-        .footer {
-            background-color: #091943;
-            color: #F3F4F6;
-            padding: 40px 0;
-            font-size: 0.9rem;
-        }
-
-        .footer .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 250px;
-            margin-bottom: 20px;
-        }
-        
-        .footer-column h3 {
-            color: #FFFFFF;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .footer-column a {
-            color: #F3F4F6;
-            display: block;
-            margin-bottom: 8px;
-        }
-        
-        .footer-column a:hover {
-            color: #2463eb;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-links a {
-            font-size: 1.5rem;
-            color: #2463eb;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: #FFFFFF;
-        }
-        
-        .copyright {
-            width: 100%;
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .hero .content, .book-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-image, .book-cover {
-                order: -1;
-            }
-            
-            .navbar nav {
-                display: none;
-            }
-            
-            .footer .container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .footer-column {
-                min-width: 100%;
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .signup-form {
-                flex-direction: column;
-            }
-        }
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <!-- Navigation Bar -->
-    <header class="navbar">
-        <div class="container">
-            <div class="logo">Cheptiony Mutai</div>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#story">Journey</a>
-                <a href="#portfolio">Insights</a>
-                <a href="https://techtubestudio.com" target="_blank">Agency</a>
-            </nav>
-        </div>
-    </header>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-    <!-- Hero Section -->
-    <section id="about" class="hero">
-        <div class="container">
-            <div class="content">
-                <div class="hero-text">
-                    <h1>Cheptiony Mutai: From Freelance to Fortune</h1>
-                    <p style="font-size: 1.15rem; color: #555;">
-                        I am a Digital Media Consultant and the author of the upcoming book, **'From Freelance to Fortune'**. I help ambitious entrepreneurs master digital storytelling and video production to build scalable, profitable businesses.
-                    </p>
-                    <p style="font-weight: 600; color: #091943;">
-                        My mission is simple: To provide the insights and tools needed to achieve freedom, focus, and financial independence through online enterprise.
-                    </p>
-                    <a href="https://techtubestudio.com" target="_blank" class="cta-button">Work With Me</a>
-                </div>
-                <div class="hero-image">
-                    <!-- Profile Photo Placeholder: Change src="profile.jpg" once uploaded -->
-                    <img src="profile.jpg" alt="Professional portrait of Cheptiony Mutai" class="profile-photo">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- My Journey Timeline -->
-    <section id="story">
-        <div class="container">
-            <h2>My Journey</h2>
-            <ul class="timeline">
-                <li data-year="2009">
-                    <strong>Started Chapchap Entertainment</strong>
-                    My first venture focused on helping vernacular musicians produce music videos.
-                </li>
-                <li data-year="2010">
-                    <strong>Graduated from KIMC</strong>
-                    Earned a Diploma in Broadcast Journalism from Kenya Institute of Mass Communication after three years of study.
-                </li>
-                <li data-year="2012">
-                    <strong>Entered Online Freelancing & Launched JGG Concepts</strong>
-                    Joined Odesk and Elance (now Upwork) offering video production services globally. Also initiated **Junior Green Generation Concepts**, organizing World Environmental Day events to teach children about conservation through tree planting.
-                </li>
-                <li data-year="2013">
-                    <strong>Registered Techtube Video Studio (Sole Proprietorship)</strong>
-                    My second business registered, focusing on screencast video production for online clients.
-                </li>
-                <li data-year="2014">
-                    <strong>Discontinued JGG Concepts</strong>
-                    Gave up on Junior Green Generation Concepts after failing to secure sponsorship.
-                </li>
-                <li data-year="2015">
-                    <strong>Launched PichApp</strong>
-                    Developed a mobile app to help people order photo prints for delivery, abandoning it in 2016 to focus on Techtube Studio due to high operational costs.
-                </li>
-                <li data-year="2016">
-                    <strong>Converted to Trendline Network Ltd.</strong>
-                    Converted Chapchap Entertainment into a formal company, changing its name to Trendline Network Ltd.
-                </li>
-                <li data-year="2020">
-                    <strong>Closed Trendline Network Ltd.</strong>
-                    Used the 80/20 principle to close Trendline and focus solely on Techtube Video Studio, eliminating high overheads (like mandatory physical location for local permits) and focusing on the scalable online market.
-                </li>
-                <li data-year="2021">
-                    <strong>Continued Freelancing</strong>
-                    Focused on freelancing on Upwork, still offering specialized video production during the COVID-19 lockdown season.
-                </li>
-                <li data-year="2023">
-                    <strong>Relaunched Techtube Video Studio Ltd. (Limited Company)</strong>
-                    Official relaunch as a limited company, adjusting the business model to adopt AI services and focus on high-demand, low-overhead services like screencast, explainer videos, and 2D animation.
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Ventures Grid -->
-    <section id="ventures" class="text-center">
-        <div class="container">
-            <h2>My Ventures & Resources</h2>
-            <div class="ventures-grid">
-
-                <div class="venture-card">
-                    <h3>AI-Driven Agency</h3>
-                    <p>My current focus: building Techtube Video Studio Ltd. for scalable video solutions.</p>
-                    <a href="https://techtubestudio.com" class="venture-link agency" target="_blank" rel="noopener noreferrer">
-                        Visit Techtube Studio
-                    </a>
-                </div>
-
-                <div class="venture-card">
-                    <h3>Freelance History</h3>
-                    <p>View my successful track record, portfolio, and client feedback on Upwork.</p>
-                    <a href="https://www.upwork.com/freelancers/~0176c476e3994cfb6b?mp_source=share" class="venture-link upwork" target="_blank" rel="noopener noreferrer">
-                        View Upwork Profile
-                    </a>
-                </div>
-
-                <div class="venture-card">
-                    <h3>YouTube Channel</h3>
-                    <p>Subscribe for insights on video marketing, AI tools, and entrepreneurial growth.</p>
-                    <!-- NOTE: Replace with your actual YouTube URL -->
-                    <a href="http://youtube.com/your-channel-url" class="venture-link youtube" target="_blank" rel="noopener noreferrer">
-                        Subscribe
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio & Insights Section -->
-    <section id="portfolio">
-        <div class="container">
-            <h2 class="text-center">Featured Articles from the Blog</h2>
-            
-            <div class="portfolio-grid">
-
-                <!-- Linked to blog/why-i-closed-a-successful-business.html -->
-                <div class="portfolio-item">
-                    <span class="category">Entrepreneurship | Dec 15, 2020</span>
-                    <h3><a href="blog/why-i-closed-a-successful-business.html">Why I Closed a Successful Business to Start Over</a></h3>
-                    <p>My strategic decision to close an established company (Trendline Network Ltd.) to pursue a single, scalable venture.</p>
-                </div>
-
-                <!-- Linked to blog/how-to-start-online-business-kenya.html -->
-                <div class="portfolio-item">
-                    <span class="category">Business | Jul 7, 2022</span>
-                    <h3><a href="blog/how-to-start-online-business-kenya.html">How to Start An Online Business In Kenya and Its Cost</a></h3>
-                    <p>A detailed, step-by-step guide on legally registering and launching an online business in Kenya.</p>
-                </div>
-
-                <!-- Linked to blog/3-common-video-editing-mistakes.html -->
-                <div class="portfolio-item">
-                    <span class="category">Video Production | Feb 23, 2022</span>
-                    <h3><a href="blog/3-common-video-editing-mistakes.html">3 Common Video Editing Mistakes That Most Beginners Make</a></h3>
-                    <p>Essential tips for beginner video editors on avoiding common pitfalls like poor audio balance, and unprofessional design.</p>
-                </div>
-
-                <!-- Linked to blog/3-overlooked-golden-rules-to-succeed.html -->
-                <div class="portfolio-item">
-                    <span class="category">Freelancing | July 11, 2019</span>
-                    <h3><a href="blog/3-overlooked-golden-rules-to-succeed.html">3 Overlooked 'Golden Rules To Succeed' in Freelancing</a></h3>
-                    <p>Focusing on the simple, yet powerful rules for long-term success: repetition, being specific on your niche, and providing maximum value.</p>
-                </div>
-                
-                <!-- Linked to blog/3-marketing-tools-and-services.html -->
-                <div class="portfolio-item">
-                    <span class="category">Marketing | Feb 15, 2023</span>
-                    <h3><a href="blog/3-marketing-tools-and-services.html">3 Marketing Tools And Services You Need In Your Online Business Today</a></h3>
-                    <p>A look at the three critical tools—Email Marketing, Advertising Services, and Content Creation—necessary to drive growth and compete effectively.</p>
-                </div>
-
-                <!-- Linked to blog/3-reasons-not-to-subcontract.html -->
-                <div class="portfolio-item">
-                    <span class="category">Freelancing Tips | Nov 21, 2018</span>
-                    <h3><a href="blog/3-reasons-not-to-subcontract.html">3 Reasons Why You Should not Subcontract a Project you are Halfway Working on</a></h3>
-                    <p>Why shifting project responsibility halfway through can lead to missed deadlines, loss of client trust, and wasted time/money—and what you should do instead.</p>
-                </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 50px;">
-                <!-- New Link to the Blog Archive Page -->
-                <a href="blog.html" class="cta-button" style="background-color: #091943; padding: 10px 25px;">View All Posts (100+ Article Archive) →</a>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- Book Signup Section -->
-    <section id="book-signup">
-        <div class="container">
-            <h2 class="text-center">My Upcoming Book: 'From Freelance to Fortune'</h2>
-            <div class="book-content">
-                <div class="book-cover">
-                    <!-- Book Cover Placeholder: Change src="book-cover.png" once uploaded -->
-                    <img src="book-cover.png" alt="From Freelance to Fortune Book Cover" class="book-cover-img">
-                </div>
-                <div class="book-details">
-                    <p style="font-size: 1.1rem;">
-                        I'm writing my book, **'From Freelance to Fortune,'** compiling lessons from over a decade in video production, business ownership, and the shift to AI-driven services.
-                    </p>
-                    <p style="font-weight: 600;">
-                        Be the first to hear about the launch, exclusive chapters, and pre-order dates.
-                    </p>
-                    <!-- NOTE: This is a visual form only. You must link this form to an email marketing service (like Mailchimp) for it to actually collect emails. -->
-                    <form action="#" method="POST" class="signup-form">
-                        <input type="email" name="email" placeholder="Enter your email to get notified" required>
-                        <button type="submit">Notify Me</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            
-            <div class="footer-column">
-                <h3>About Cheptiony</h3>
-                <p>Digital Media Consultant, Video Producer, and author focusing on achieving financial freedom through scalable online businesses.</p>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <a href="#about">About Me</a>
-                <a href="#story">My Journey</a>
-                <a href="blog.html">Blog Archive</a>
-                <a href="https://techtubestudio.com" target="_blank">Techtube Video Studio (Agency)</a>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Connect</h3>
-                <p>Follow my journey and get daily insights.</p>
-                <div class="social-links">
-                    <!-- Social Media Links - Update the URLs! -->
-                    <a href="http://twitter.com/cheptiony" target="_blank" aria-label="Follow me on X/Twitter">𝕏</a>
-                    <a href="https://ke.linkedin.com/in/cheptionymutai" target="_blank" aria-label="Connect with me on LinkedIn">in</a>
-                    <a href="https://www.youtube.com/@cheptionymutai" target="_blank" aria-label="Subscribe to my YouTube channel">▶</a>
-                    <a href="http://tiktok.com/@your-profile" target="_blank" aria-label="Follow me on TikTok">♬</a>
-                    <a href="mailto:cheptiony@cheptiony.com" aria-label="Email me">✉</a>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                &copy; 2025 Cheptiony Mutai. All rights reserved.
-            </div>
-        </div>
-    </footer>
-
-</body>
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
 </html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="From Freelance to Fortune — the upcoming book by Cheptiony Mutai. From Local Gigs to Global Reach. Join the waitlist.">
+  <meta property="og:title" content="From Freelance to Fortune — Cheptiony Mutai">
+  <meta property="og:image" content="https://cheptiony.com/freelance-to-fortune.png">
+  <title>From Freelance to Fortune — Cheptiony Mutai</title>
+  <link rel="icon" href="/cheptiony-favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /*
+      Color palette drawn from the From Freelance to Fortune cover:
+      Deep navy background (identical to our site navy), rich gold accents.
+    */
+    body { font-family: 'Inter', sans-serif; background: #060c18; }
+    .gold-text {
+      background: linear-gradient(135deg, #c9a84c 0%, #e8d080 50%, #c9a84c 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .gold-btn { background: linear-gradient(135deg, #c9a84c, #e8c96a); color: #060c18; }
+    .gold-btn:hover { background: linear-gradient(135deg, #b8973e, #d4b860); }
+  </style>
+</head>
+<body class="text-white antialiased">
+
+<!-- NAV -->
+<nav class="fixed top-0 w-full z-50 border-b" style="background:rgba(6,12,24,0.97);border-color:#2a1f08;backdrop-filter:blur(12px)">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="/"><img src="/cheptiony-logo.png" alt="Cheptiony Mutai" class="h-9"></a>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a href="/" class="text-slate-400 hover:text-white transition">Home</a>
+      <a href="/journey.html" class="text-slate-400 hover:text-white transition">Journey</a>
+      <a href="/blog.html" class="text-slate-400 hover:text-white transition">Insights</a>
+      <a href="/contact.html" class="text-slate-400 hover:text-white transition">Contact</a>
+      <div class="relative group">
+        <button class="text-slate-400 hover:text-white transition flex items-center gap-1">Ventures <span class="text-xs opacity-60">▾</span></button>
+        <div class="absolute right-0 top-full mt-2 w-56 rounded-2xl shadow-2xl py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+             style="background:#0e1628;border:1px solid #2a1f08">
+          <a href="https://techtubestudio.com" target="_blank" class="flex items-center gap-2 px-4 py-2.5 text-slate-300 hover:text-white text-sm transition">📹 Techtube Studio</a>
+          <a href="https://paretoprofit.cheptiony.com/" target="_blank" class="flex items-center gap-2 px-4 py-2.5 text-slate-300 hover:text-white text-sm transition">💰 Pareto Profit</a>
+          <a href="/renewed-mind.html" class="flex items-center gap-2 px-4 py-2.5 text-slate-300 hover:text-white text-sm transition">📖 Renewed Mind Guide</a>
+          <a href="/book.html" class="flex items-center gap-2 px-4 py-2.5 text-sm" style="color:#c9a84c">✍️ From Freelance to Fortune</a>
+        </div>
+      </div>
+      <a href="https://techtubestudio.com" target="_blank"
+         class="gold-btn font-bold px-5 py-2 rounded-lg transition text-sm">
+        Hire the Agency →
+      </a>
+    </div>
+    <button id="menu-btn" class="md:hidden text-slate-400 hover:text-white p-1">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-4 py-4 space-y-1 text-sm border-t" style="border-color:#2a1f08">
+    <a href="/" class="block text-slate-400 hover:text-white py-2 transition">Home</a>
+    <a href="/journey.html" class="block text-slate-400 hover:text-white py-2 transition">Journey</a>
+    <a href="/blog.html" class="block text-slate-400 hover:text-white py-2 transition">Insights</a>
+    <a href="/contact.html" class="block text-slate-400 hover:text-white py-2 transition">Contact</a>
+    <div class="border-t pt-3 mt-2" style="border-color:#2a1f08">
+      <a href="https://techtubestudio.com" target="_blank" class="block text-slate-400 hover:text-white py-1.5">📹 Techtube Studio</a>
+      <a href="https://paretoprofit.cheptiony.com/" target="_blank" class="block text-slate-400 hover:text-white py-1.5">💰 Pareto Profit</a>
+      <a href="/renewed-mind.html" class="block text-slate-400 hover:text-white py-1.5">📖 Renewed Mind Guide</a>
+      <a href="/book.html" class="block py-1.5" style="color:#c9a84c">✍️ From Freelance to Fortune</a>
+    </div>
+    <a href="https://techtubestudio.com" target="_blank" class="block gold-btn font-bold px-4 py-3 rounded-xl text-center mt-3 text-sm">Hire the Agency →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pt-28 pb-20 px-4" style="background:linear-gradient(160deg,#060c18 0%,#0e1628 40%,#0c1520 70%,#100e08 100%)">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: Copy -->
+      <div>
+        <div class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6"
+             style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:#c9a84c">
+          Coming Soon — Join the Waitlist
+        </div>
+        <h1 class="text-4xl md:text-5xl font-black leading-tight mb-6">
+          From Freelance<br>to <span class="gold-text">Fortune</span>
+        </h1>
+        <p class="text-slate-300 text-lg leading-relaxed mb-3">
+          From Local Gigs to Global Reach: My Story of Mastering Local & International
+          Freelance, and Launching a Profitable Online Video Business.
+        </p>
+        <p class="text-slate-500 text-sm leading-relaxed mb-8">
+          In 2009, I started with a camera and no clients. By 2013, I had a studio. By 2020, I had
+          closed two failing companies and rebuilt from scratch using the 80/20 rule. By 2026, I had a
+          global client base and an AI-powered production model no one else was using.
+          This book is everything I wish I had when I started.
+        </p>
+
+        <!-- Waitlist form -->
+        <div id="waitlist-wrapper">
+          <p class="text-white font-semibold text-sm mb-3">Get notified at launch — plus early chapter access:</p>
+          <form id="waitlist-form" class="space-y-3" novalidate>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input type="text" id="b-name" placeholder="Your name" required
+                     class="flex-none sm:w-36 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none transition"
+                     style="background:#0c1220;border:1px solid #2a1f08"
+                     onfocus="this.style.borderColor='#c9a84c'" onblur="this.style.borderColor='#2a1f08'">
+              <input type="email" id="b-email" placeholder="your@email.com" required
+                     class="flex-1 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none transition"
+                     style="background:#0c1220;border:1px solid #2a1f08"
+                     onfocus="this.style.borderColor='#c9a84c'" onblur="this.style.borderColor='#2a1f08'">
+            </div>
+            <button type="submit" id="b-btn" class="w-full gold-btn font-bold py-3.5 rounded-xl transition text-sm">
+              Join the Waitlist →
+            </button>
+            <p id="b-error" class="hidden text-red-400 text-xs">Something went wrong. Please try again.</p>
+          </form>
+          <p class="text-slate-600 text-xs mt-2">No spam. Launch notification + early chapter access only.</p>
+        </div>
+        <div id="waitlist-success" class="hidden rounded-2xl p-6" style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3)">
+          <div class="text-2xl mb-2">🎉</div>
+          <p class="font-bold mb-1" style="color:#c9a84c">You're on the list!</p>
+          <p class="text-slate-400 text-sm">I'll email you the moment pre-orders open — plus early chapter access before the public launch.</p>
+        </div>
+      </div>
+
+      <!-- Right: Book cover + stats -->
+      <div class="flex flex-col items-center gap-8">
+        <div class="relative">
+          <div class="absolute inset-0 rounded-3xl blur-3xl scale-90" style="background:rgba(201,168,76,0.08)"></div>
+          <img src="/freelance-to-fortune.png" alt="From Freelance to Fortune — Book Cover by Cheptiony Mutai"
+               class="relative w-60 h-auto rounded-2xl shadow-2xl"
+               style="border:1px solid rgba(201,168,76,0.3);box-shadow:0 0 60px rgba(201,168,76,0.08)">
+        </div>
+        <div class="grid grid-cols-3 gap-4 w-full max-w-xs">
+          <div class="rounded-xl p-4 text-center" style="background:#0c1220;border:1px solid #2a1f08">
+            <p class="font-black text-xl" style="color:#c9a84c">15</p>
+            <p class="text-slate-500 text-xs mt-0.5">Years</p>
+          </div>
+          <div class="rounded-xl p-4 text-center" style="background:#0c1220;border:1px solid #2a1f08">
+            <p class="font-black text-xl" style="color:#c9a84c">3</p>
+            <p class="text-slate-500 text-xs mt-0.5">Companies</p>
+          </div>
+          <div class="rounded-xl p-4 text-center" style="background:#0c1220;border:1px solid #2a1f08">
+            <p class="font-black text-xl" style="color:#c9a84c">1</p>
+            <p class="text-slate-500 text-xs mt-0.5">Book</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THE BOOK COVERS -->
+<section class="py-16 px-4" style="background:#0a0e18;border-top:1px solid #2a1f08;border-bottom:1px solid #2a1f08">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-sm font-medium uppercase tracking-widest mb-3" style="color:#c9a84c">What You'll Learn</p>
+      <h2 class="text-2xl md:text-3xl font-black">Built for Creators Who Are Done Guessing</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="flex items-start gap-4 p-5 rounded-2xl" style="background:#0c1220;border:1px solid #2a1f08">
+        <div class="text-xl flex-shrink-0">🚀</div>
+        <div>
+          <h3 class="text-white font-bold text-sm mb-1">How to go from zero to paid clients</h3>
+          <p class="text-slate-500 text-xs leading-relaxed">The exact path from starting with no connections and no money — to landing your first international client.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-5 rounded-2xl" style="background:#0c1220;border:1px solid #2a1f08">
+        <div class="text-xl flex-shrink-0">📉</div>
+        <div>
+          <h3 class="text-white font-bold text-sm mb-1">What failure actually teaches you</h3>
+          <p class="text-slate-500 text-xs leading-relaxed">Two companies I closed, one KRA penalty, and the moment I applied the 80/20 rule to my own business — raw and unfiltered.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-5 rounded-2xl" style="background:#0c1220;border:1px solid #2a1f08">
+        <div class="text-xl flex-shrink-0">🤖</div>
+        <div>
+          <h3 class="text-white font-bold text-sm mb-1">Building an AI-hybrid studio</h3>
+          <p class="text-slate-500 text-xs leading-relaxed">How I integrated AI into a traditional production workflow — the tools, the process, and how it changed the business model.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-5 rounded-2xl" style="background:#0c1220;border:1px solid #2a1f08">
+        <div class="text-xl flex-shrink-0">🌍</div>
+        <div>
+          <h3 class="text-white font-bold text-sm mb-1">Scaling from Africa to global clients</h3>
+          <p class="text-slate-500 text-xs leading-relaxed">Practical steps that moved me from the Kenyan market to serving SaaS companies in the US, UK, and Australia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="py-16 px-4">
+  <div class="max-w-3xl mx-auto flex flex-col md:flex-row gap-8 items-center">
+    <img src="/cheptiony-mutai.png" alt="Cheptiony Mutai"
+         class="w-24 h-24 rounded-2xl object-cover flex-shrink-0 border"
+         style="border-color:#2a1f08">
+    <div>
+      <p class="text-xs font-medium uppercase tracking-wider mb-2" style="color:#c9a84c">About the Author</p>
+      <h3 class="text-white font-bold text-xl mb-3">Cheptiony Mutai</h3>
+      <p class="text-slate-400 text-sm leading-relaxed">
+        Founder of Techtube Video Studio, strategic media consultant, and creator of Reflection Friday.
+        15 years building video businesses from Nairobi to a global client base. Cheptiony writes and teaches
+        at the intersection of media, entrepreneurship, and faith.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="py-12 px-4 border-t" style="background:linear-gradient(135deg,#0c1220,#100e08);border-color:#2a1f08">
+  <div class="max-w-2xl mx-auto text-center">
+    <h2 class="text-2xl font-black mb-3">Don't miss the launch.</h2>
+    <p class="text-slate-400 text-sm mb-6">Waitlist members get early chapters + a launch-day discount.</p>
+    <button onclick="document.getElementById('b-email').focus()"
+            class="gold-btn inline-block font-bold px-8 py-3.5 rounded-xl transition text-sm">
+      Join the Waitlist →
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t pt-16 pb-8 px-4" style="background:#060c18;border-color:#1a3050">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2">
+        <img src="/cheptiony-logo.png" alt="Cheptiony Mutai" class="h-10 mb-4">
+        <p class="text-slate-400 text-sm leading-relaxed max-w-sm">Strategic media consultant. 15 years turning businesses into media brands through video strategy, AI production, and content systems.</p>
+        <div class="flex flex-wrap items-center gap-4 mt-6 text-slate-500 text-sm">
+          <a href="https://x.com/cheptionymutai" target="_blank" class="hover:text-white transition">𝕏 Twitter</a>
+          <a href="https://ke.linkedin.com/in/cheptionymutai" target="_blank" class="hover:text-white transition">LinkedIn</a>
+          <a href="https://www.youtube.com/@cheptionymutai" target="_blank" class="hover:text-white transition">YouTube</a>
+          <a href="https://wa.me/254712828453" target="_blank" class="hover:text-white transition">WhatsApp</a>
+          <a href="mailto:connect@cheptiony.com" class="hover:text-white transition">Email</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Site</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="/" class="hover:text-white transition">Home</a></li>
+          <li><a href="/journey.html" class="hover:text-white transition">My Journey</a></li>
+          <li><a href="/blog.html" class="hover:text-white transition">Insights</a></li>
+          <li><a href="/contact.html" class="hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Ventures</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="https://techtubestudio.com" target="_blank" class="hover:text-white transition">Techtube Studio</a></li>
+          <li><a href="https://paretoprofit.cheptiony.com/" target="_blank" class="hover:text-white transition">Pareto Profit</a></li>
+          <li><a href="/renewed-mind.html" class="hover:text-white transition">Renewed Mind Guide</a></li>
+          <li><a href="/book.html" class="hover:text-white transition">From Freelance to Fortune</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t pt-6 text-center text-sm text-slate-600" style="border-color:#1a3050">
+      © 2026 Cheptiony Mutai. All rights reserved. | Built with Focus and Strategy.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const BACKEND_URL = 'YOUR_BACKEND_ENDPOINT'; // ← Replace with your Cloud Run URL
+
+  document.getElementById('menu-btn').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+
+  document.getElementById('waitlist-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = document.getElementById('b-btn');
+    const name = document.getElementById('b-name').value.trim();
+    const email = document.getElementById('b-email').value.trim();
+    if (!name || !email) return;
+    btn.textContent = 'Joining...'; btn.disabled = true;
+    try {
+      const res = await fetch(BACKEND_URL, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'book-waitlist', name, email,
+          topic: 'From Freelance to Fortune — Waitlist',
+          business_context: 'Book waitlist signup from book landing page',
+          message: 'Please notify me when the book launches and send early chapter access.'
+        })
+      });
+      if ((await res.json()).status === 'success') {
+        document.getElementById('waitlist-wrapper').classList.add('hidden');
+        document.getElementById('waitlist-success').classList.remove('hidden');
+      } else throw new Error();
+    } catch {
+      btn.textContent = 'Join the Waitlist →'; btn.disabled = false;
+      document.getElementById('b-error').classList.remove('hidden');
+    }
+  });
+</script>
+</body>
+</html>
