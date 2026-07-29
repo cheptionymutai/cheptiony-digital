@@ -1,89 +1,530 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cheptiony Mutai — Strategic Media Consultant. 15 years helping businesses scale through AI video strategy and hybrid production. Based in Nairobi, serving clients globally.">
+  <meta property="og:title" content="Cheptiony Mutai — Strategic Media Consultant">
+  <meta property="og:image" content="https://cheptiony.com/cheptiony-mutai.png">
+  <title>Cheptiony Mutai — Strategic Media Consultant</title>
+  <link rel="icon" href="/cheptiony-favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #060c18; }
+    .gradient-text {
+      background: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .slide { transition: opacity 0.8s ease-in-out; }
+    .dot-active { background: #22d3ee; transform: scale(1.3); }
+    .dot-inactive { background: rgba(255,255,255,0.25); }
+    .line-clamp-2 { display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden; }
+    .line-clamp-3 { display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden; }
+  </style>
+</head>
+<body class="text-white antialiased">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.16.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.16.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.16.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.16.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.16.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.16.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.16.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.16.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.16.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.16.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+<!-- ============================================================ NAV -->
+<nav class="fixed top-0 w-full z-50 border-b" style="background:rgba(6,12,24,0.97);border-color:#1a3050;backdrop-filter:blur(12px)">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="/"><img src="/cheptiony-logo.png" alt="Cheptiony Mutai" class="h-9"></a>
+    <!-- Desktop -->
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a href="/" class="text-cyan-400">Home</a>
+      <a href="/journey.html" class="text-slate-400 hover:text-white transition">Journey</a>
+      <a href="/blog.html" class="text-slate-400 hover:text-white transition">Insights</a>
+      <a href="/contact.html" class="text-slate-400 hover:text-white transition">Contact</a>
+      <div class="relative group">
+        <button class="text-slate-400 hover:text-white transition flex items-center gap-1">Ventures <span class="text-xs opacity-60">▾</span></button>
+        <div class="absolute right-0 top-full mt-2 w-56 rounded-2xl shadow-2xl py-2 z-50
+                    opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+             style="background:#0c1628;border:1px solid #1a3050">
+          <a href="https://techtubestudio.com" target="_blank" class="flex items-center gap-2 px-4 py-2.5 text-slate-300 hover:text-white text-sm transition" style="hover:background:#152036">📹 Techtube Studio</a>
+          <a href="https://paretoprofit.cheptiony.com/" target="_blank" class="flex items-center gap-2 px-4 py-2.5 text-slate-300 hover:text-white text-sm transition">💰 Pareto Profit</a>
+          <a href="/renewed-mind.html" class="flex items-center gap-2 px-4 py-2.5 text-slate-300 hover:text-white text-sm transition">📖 Renewed Mind Guide</a>
+          <a href="/book.html" class="flex items-center gap-2 px-4 py-2.5 text-slate-300 hover:text-white text-sm transition">✍️ From Freelance to Fortune</a>
+        </div>
+      </div>
+      <a href="https://techtubestudio.com" target="_blank"
+         class="bg-cyan-500 hover:bg-cyan-400 font-bold px-5 py-2 rounded-lg transition text-sm"
+         style="color:#060c18">Hire the Agency →</a>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <button id="menu-btn" class="md:hidden text-slate-400 hover:text-white p-1">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <!-- Mobile -->
+  <div id="mobile-menu" class="hidden md:hidden px-4 py-4 space-y-1 text-sm border-t" style="border-color:#1a3050">
+    <a href="/" class="block text-cyan-400 font-medium py-2">Home</a>
+    <a href="/journey.html" class="block text-slate-400 hover:text-white py-2 transition">Journey</a>
+    <a href="/blog.html" class="block text-slate-400 hover:text-white py-2 transition">Insights</a>
+    <a href="/contact.html" class="block text-slate-400 hover:text-white py-2 transition">Contact</a>
+    <div class="border-t pt-3 mt-2" style="border-color:#1a3050">
+      <a href="https://techtubestudio.com" target="_blank" class="block text-slate-400 hover:text-white py-1.5">📹 Techtube Studio</a>
+      <a href="https://paretoprofit.cheptiony.com/" target="_blank" class="block text-slate-400 hover:text-white py-1.5">💰 Pareto Profit</a>
+      <a href="/renewed-mind.html" class="block text-slate-400 hover:text-white py-1.5">📖 Renewed Mind Guide</a>
+      <a href="/book.html" class="block text-slate-400 hover:text-white py-1.5">✍️ From Freelance to Fortune</a>
+    </div>
+    <a href="https://techtubestudio.com" target="_blank"
+       class="block bg-cyan-500 font-bold px-4 py-3 rounded-xl text-center mt-3 text-sm"
+       style="color:#060c18">Hire the Agency →</a>
+  </div>
+</nav>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+<!-- ============================================================ HERO -->
+<section class="min-h-screen flex items-center pt-24 pb-16 px-4">
+  <div class="max-w-6xl mx-auto w-full">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
+      <!-- Left: Copy -->
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-cyan-400 text-xs font-medium mb-6"
+             style="background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.2)">
+          <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></span>
+          Available for consulting — Limited spots per month
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
+          Hi, I'm<br>
+          <span class="gradient-text">Cheptiony.</span><br>
+          I Turn Businesses<br>Into Media Brands.
+        </h1>
+        <p class="text-slate-400 text-lg leading-relaxed mb-8 max-w-lg">
+          15 years building video production systems for global brands from Nairobi.
+          I help businesses grow through consistent, AI-powered video content —
+          and I teach everything I've learned along the way.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-10">
+          <a href="#consulting" class="bg-cyan-500 hover:bg-cyan-400 font-bold px-6 py-3 rounded-xl transition text-sm" style="color:#060c18">
+            Book a Consultation →
+          </a>
+          <a href="https://techtubestudio.com" target="_blank"
+             class="font-semibold px-6 py-3 rounded-xl transition text-sm border text-white hover:text-white"
+             style="background:#0c1628;border-color:#1a3050;hover:background:#152036">
+            Visit the Agency
+          </a>
+        </div>
+        <!-- Stats -->
+        <div class="flex items-center gap-6 pt-8 border-t" style="border-color:#1a3050">
+          <div><p class="text-white font-bold text-2xl">15+</p><p class="text-slate-500 text-xs mt-0.5">Years experience</p></div>
+          <div class="w-px h-10" style="background:#1a3050"></div>
+          <div><p class="text-white font-bold text-2xl">2013</p><p class="text-slate-500 text-xs mt-0.5">Studio founded</p></div>
+          <div class="w-px h-10" style="background:#1a3050"></div>
+          <div><p class="text-white font-bold text-2xl">Global</p><p class="text-slate-500 text-xs mt-0.5">Client base</p></div>
+        </div>
+      </div>
+
+      <!-- Right: Slideshow -->
+      <div class="flex justify-center md:justify-end">
+        <div class="relative">
+          <!-- Glow -->
+          <div class="absolute inset-0 rounded-3xl blur-3xl scale-90" style="background:rgba(34,211,238,0.08)"></div>
+
+          <!-- Slideshow container -->
+          <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden"
+               style="border:1px solid rgba(34,211,238,0.15);box-shadow:0 0 60px rgba(34,211,238,0.06)">
+
+            <!--
+              SLIDESHOW PHOTOS — rename your action photos to match these filenames
+              and place them in your public/ folder alongside cheptiony-mutai.png:
+              Slide 1: cheptiony-mutai.png      ← profile photo (already in your folder)
+              Slide 2: cheptiony-slide-2.jpg    ← action/field photo
+              Slide 3: cheptiony-slide-3.jpg    ← action/field photo
+              Slide 4: cheptiony-slide-4.jpg    ← action/field photo
+              Slide 5: cheptiony-slide-5.jpg    ← action/field photo
+            -->
+            <img class="slide absolute inset-0 w-full h-full object-cover object-top"
+                 src="/cheptiony-mutai.png" alt="Cheptiony Mutai" style="opacity:1">
+            <img class="slide absolute inset-0 w-full h-full object-cover"
+                 src="/cheptiony-slide-2.jpg" alt="Cheptiony in production" style="opacity:0"
+                 onerror="this.remove()">
+            <img class="slide absolute inset-0 w-full h-full object-cover"
+                 src="/cheptiony-slide-3.jpg" alt="Cheptiony on set" style="opacity:0"
+                 onerror="this.remove()">
+            <img class="slide absolute inset-0 w-full h-full object-cover"
+                 src="/cheptiony-slide-4.jpg" alt="Cheptiony at work" style="opacity:0"
+                 onerror="this.remove()">
+            <img class="slide absolute inset-0 w-full h-full object-cover"
+                 src="/cheptiony-slide-5.jpg" alt="Cheptiony in the field" style="opacity:0"
+                 onerror="this.remove()">
+
+            <!-- Dot indicators -->
+            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10" id="slide-dots"></div>
+          </div>
+
+          <!-- YouTube badge -->
+          <a href="https://www.youtube.com/@cheptionymutai" target="_blank"
+             class="absolute -bottom-4 -left-4 bg-red-600 hover:bg-red-500 transition text-white text-xs font-bold
+                    px-4 py-2 rounded-xl flex items-center gap-2 shadow-xl">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            Watch on YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ WHAT I DO -->
+<section class="py-20 px-4 border-y" style="background:#0a1220;border-color:#1a3050">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14">
+      <p class="text-cyan-400 text-sm font-medium uppercase tracking-widest mb-3">What I Do</p>
+      <h2 class="text-3xl md:text-4xl font-black">Three Ways I Can Help You</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Agency -->
+      <div class="rounded-2xl p-8 hover:border-cyan-500/30 transition-all group" style="background:#0c1628;border:1px solid #1a3050">
+        <div class="text-4xl mb-5">📹</div>
+        <h3 class="text-white font-bold text-xl mb-3">Video Production & Strategy</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">Done-for-you monthly video content through Techtube Video Studio. AI-driven strategy meets senior human production — starting from $400/month.</p>
+        <a href="https://techtubestudio.com" target="_blank" class="text-cyan-400 text-sm font-semibold hover:text-cyan-300 transition">Visit Techtube Studio →</a>
+      </div>
+      <!-- Consulting — Featured -->
+      <div class="rounded-2xl p-8 transition-all group relative" style="background:rgba(34,211,238,0.04);border:1px solid rgba(34,211,238,0.35)">
+        <div class="absolute top-5 right-5 bg-cyan-500 text-xs font-black px-2.5 py-0.5 rounded-full" style="color:#060c18">FEATURED</div>
+        <div class="text-4xl mb-5">🎯</div>
+        <h3 class="text-white font-bold text-xl mb-3">1-on-1 Consulting</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">Strategy sessions for founders and marketers who want to build a video content system, grow a YouTube channel, or integrate AI into their media workflow.</p>
+        <a href="#consulting" class="text-cyan-400 text-sm font-semibold hover:text-cyan-300 transition">Book a Session →</a>
+      </div>
+      <!-- Pareto -->
+      <div class="rounded-2xl p-8 hover:border-cyan-500/30 transition-all group" style="background:#0c1628;border:1px solid #1a3050">
+        <div class="text-4xl mb-5">💰</div>
+        <h3 class="text-white font-bold text-xl mb-3">Pareto Profit App</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">Apply the 80/20 principle to your business finances. Identify your most profitable income streams and cut what's silently draining you.</p>
+        <a href="https://paretoprofit.cheptiony.com/" target="_blank" class="text-cyan-400 text-sm font-semibold hover:text-cyan-300 transition">Try Pareto Profit →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CONSULTING -->
+<section id="consulting" class="py-24 px-4">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <!-- Left -->
+      <div>
+        <p class="text-cyan-400 text-sm font-medium uppercase tracking-widest mb-3">1-on-1 Consulting</p>
+        <h2 class="text-3xl md:text-4xl font-black mb-6">Stop Guessing.<br>Get a Clear Roadmap.</h2>
+        <p class="text-slate-400 leading-relaxed mb-8">Whether you're a founder trying to get consistent on video, a creator ready to monetize, or a marketer wanting to integrate AI into production — I've spent 15 years building exactly what you're trying to build.</p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <div class="w-5 h-5 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3" style="color:#060c18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <p class="text-slate-300 text-sm"><strong class="text-white">Video content system design</strong> — a workflow that produces consistently without burning out</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-5 h-5 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3" style="color:#060c18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <p class="text-slate-300 text-sm"><strong class="text-white">YouTube channel strategy</strong> — audit, positioning, and growth roadmap</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-5 h-5 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3" style="color:#060c18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <p class="text-slate-300 text-sm"><strong class="text-white">AI integration for media teams</strong> — tools, workflows, what to automate</p>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-5 h-5 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3 h-3" style="color:#060c18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <p class="text-slate-300 text-sm"><strong class="text-white">Video business model</strong> — how to package, price, and sell your production services</p>
+          </li>
+        </ul>
+        <div class="flex items-center gap-3 text-sm text-slate-500">
+          <span>Prefer direct message?</span>
+          <a href="https://wa.me/254712828453" target="_blank" class="flex items-center gap-2 text-green-400 hover:text-green-300 transition font-semibold">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+      <!-- Right: Form -->
+      <div class="rounded-2xl p-8" style="background:#0c1628;border:1px solid #1a3050">
+        <h3 class="text-white font-bold text-xl mb-1.5">Book a Consultation</h3>
+        <p class="text-slate-500 text-sm mb-6">Tell me about your challenge. I'll respond within 24 hours.</p>
+        <form id="consulting-form" class="space-y-4" novalidate>
+          <div>
+            <label class="block text-sm text-slate-400 mb-1.5">Full Name</label>
+            <input type="text" id="c-name" placeholder="Your name" required
+                   class="w-full rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none transition"
+                   style="background:#060c18;border:1px solid #1a3050"
+                   onfocus="this.style.borderColor='#22d3ee'" onblur="this.style.borderColor='#1a3050'">
+          </div>
+          <div>
+            <label class="block text-sm text-slate-400 mb-1.5">Email Address</label>
+            <input type="email" id="c-email" placeholder="your@email.com" required
+                   class="w-full rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none transition"
+                   style="background:#060c18;border:1px solid #1a3050"
+                   onfocus="this.style.borderColor='#22d3ee'" onblur="this.style.borderColor='#1a3050'">
+          </div>
+          <div>
+            <label class="block text-sm text-slate-400 mb-1.5">What do you need help with?</label>
+            <select id="c-topic"
+                    class="w-full rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition"
+                    style="background:#060c18;border:1px solid #1a3050">
+              <option value="Video Content System">Building a Video Content System</option>
+              <option value="YouTube Strategy">YouTube Channel Strategy & Growth</option>
+              <option value="AI Media Integration">AI Integration for Media Workflow</option>
+              <option value="Video Business Model">Video Business / Pricing Model</option>
+              <option value="Other">Other — I'll explain below</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm text-slate-400 mb-1.5">Brief on your situation</label>
+            <textarea id="c-message" rows="4" required
+                      placeholder="Tell me about your business, where you're stuck, and what you're hoping to achieve..."
+                      class="w-full rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none transition resize-none"
+                      style="background:#060c18;border:1px solid #1a3050"
+                      onfocus="this.style.borderColor='#22d3ee'" onblur="this.style.borderColor='#1a3050'"></textarea>
+          </div>
+          <button type="submit" id="c-btn"
+                  class="w-full bg-cyan-500 hover:bg-cyan-400 font-bold py-3.5 rounded-xl transition text-sm"
+                  style="color:#060c18">Send Consultation Request →</button>
+          <p id="c-error" class="hidden text-center text-red-400 text-sm pt-1">
+            Something went wrong. Try <a href="https://wa.me/254712828453" class="underline">WhatsApp</a>.
+          </p>
+        </form>
+        <div id="c-success" class="hidden text-center py-6">
+          <div class="text-3xl mb-3">✅</div>
+          <p class="text-green-400 font-semibold">Message received!</p>
+          <p class="text-slate-500 text-sm mt-1">I'll be in touch within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ RENEWED MIND BANNER
+     Colors matched to the Renewed Mind book cover:
+     deep teal/green bg → warm golden/orange sunrise feel -->
+<section class="py-16 px-4" style="background:linear-gradient(135deg,#061a1c 0%,#0a2e2e 35%,#0f2018 65%,#1a1208 100%);border-top:1px solid rgba(20,160,130,0.2);border-bottom:1px solid rgba(20,160,130,0.2)">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
+    <img src="/renewed-mind.png" alt="Renewed Mind, Abundant Life Guide"
+         class="w-28 md:w-40 h-auto rounded-2xl shadow-2xl flex-shrink-0"
+         style="border:1px solid rgba(45,180,140,0.3)">
+    <div class="flex-1 text-center md:text-left">
+      <div class="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
+           style="background:rgba(45,180,140,0.15);border:1px solid rgba(45,180,140,0.3);color:#4dd9b0">
+        Free Download — Reflection Friday
+      </div>
+      <h2 class="text-white font-black text-2xl md:text-3xl mb-3">Renewed Mind, Abundant Life</h2>
+      <p class="text-slate-400 text-sm leading-relaxed mb-5">
+        A 40-Day Journey to Rewiring Your Mindset for Divine Prosperity, Wisdom, and Peace.
+        Built from my personal Bible study series. Free when you share your email.
+      </p>
+      <a href="/renewed-mind.html"
+         class="inline-block font-bold px-6 py-3 rounded-xl transition text-sm text-white"
+         style="background:linear-gradient(135deg,#0d9488,#f97316)">
+        Get the Free Guide →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ LATEST INSIGHTS -->
+<section class="py-20 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <p class="text-cyan-400 text-sm font-medium uppercase tracking-widest mb-2">From the Blog</p>
+        <h2 class="text-2xl md:text-3xl font-black">Latest Insights</h2>
+      </div>
+      <a href="/blog.html" class="text-slate-400 hover:text-white text-sm font-medium transition hidden md:block">View all →</a>
+    </div>
+    <div id="blog-posts" class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl h-80 animate-pulse" style="background:#0c1628;border:1px solid #1a3050"></div>
+      <div class="rounded-2xl h-80 animate-pulse" style="background:#0c1628;border:1px solid #1a3050"></div>
+      <div class="rounded-2xl h-80 animate-pulse" style="background:#0c1628;border:1px solid #1a3050"></div>
+    </div>
+    <div class="text-center mt-8 md:hidden">
+      <a href="/blog.html" class="text-cyan-400 text-sm font-medium hover:text-cyan-300 transition">View all articles →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ JOURNEY TEASER -->
+<section class="py-16 px-4 border-y" style="background:#0a1220;border-color:#1a3050">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="text-cyan-400 text-sm font-medium uppercase tracking-widest mb-3">The Story</p>
+    <h2 class="text-3xl md:text-4xl font-black mb-5">From Music Videos in the<br>Rift Valley to Global Clients</h2>
+    <p class="text-slate-400 leading-relaxed max-w-2xl mx-auto mb-8">
+      In 2009 I started filming vernacular musicians in Kenya's Southern Rift Valley with whatever equipment I could find.
+      Today, Techtube Video Studio serves SaaS companies, NGOs, and brands worldwide. Fifteen years of decisions, failures,
+      and reinventions — all documented.
+    </p>
+    <a href="/journey.html"
+       class="inline-block font-semibold px-6 py-3 rounded-xl transition text-sm text-white border"
+       style="background:#0c1628;border-color:#1a3050">Read the Full Journey →</a>
+  </div>
+</section>
+
+<!-- ============================================================ BOOK TEASER
+     Colors matched to From Freelance to Fortune cover: dark navy + gold -->
+<section class="py-16 px-4">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center gap-10 rounded-3xl p-10"
+         style="background:linear-gradient(135deg,#0c1628 0%,#101e38 60%,#0f1a2e 100%);border:1px solid rgba(201,168,76,0.25)">
+      <div class="flex-1">
+        <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#c9a84c">Coming Soon</p>
+        <h2 class="text-2xl md:text-3xl font-black text-white mb-4">From Freelance to Fortune</h2>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+          From Local Gigs to Global Reach: My Story of Mastering Local & International Freelance,
+          and Launching a Profitable Online Video Business.
+        </p>
+        <a href="/book.html"
+           class="inline-block font-bold px-6 py-3 rounded-xl transition text-sm"
+           style="background:linear-gradient(135deg,#c9a84c,#e8c96a);color:#060c18">
+          Join the Waitlist →
+        </a>
+      </div>
+      <img src="/freelance-to-fortune.png" alt="From Freelance to Fortune Book Cover"
+           class="w-36 h-auto rounded-xl shadow-2xl flex-shrink-0"
+           style="border:1px solid rgba(201,168,76,0.3)">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ FOOTER -->
+<footer class="border-t pt-16 pb-8 px-4" style="background:#060c18;border-color:#1a3050">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2">
+        <img src="/cheptiony-logo.png" alt="Cheptiony Mutai" class="h-10 mb-4">
+        <p class="text-slate-400 text-sm leading-relaxed max-w-sm">Strategic media consultant. 15 years turning businesses into media brands through video strategy, AI production, and content systems.</p>
+        <div class="flex flex-wrap items-center gap-4 mt-6 text-slate-500 text-sm">
+          <a href="https://x.com/cheptionymutai" target="_blank" class="hover:text-cyan-400 transition">𝕏 Twitter</a>
+          <a href="https://ke.linkedin.com/in/cheptionymutai" target="_blank" class="hover:text-cyan-400 transition">LinkedIn</a>
+          <a href="https://www.youtube.com/@cheptionymutai" target="_blank" class="hover:text-cyan-400 transition">YouTube</a>
+          <a href="https://wa.me/254712828453" target="_blank" class="hover:text-cyan-400 transition">WhatsApp</a>
+          <a href="mailto:connect@cheptiony.com" class="hover:text-cyan-400 transition">Email</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Site</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="/" class="hover:text-white transition">Home</a></li>
+          <li><a href="/journey.html" class="hover:text-white transition">My Journey</a></li>
+          <li><a href="/blog.html" class="hover:text-white transition">Insights</a></li>
+          <li><a href="/contact.html" class="hover:text-white transition">Contact</a></li>
+          <li><a href="/privacypolicy.html" class="hover:text-white transition">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-xs uppercase tracking-wider">Ventures</h4>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="https://techtubestudio.com" target="_blank" class="hover:text-white transition">Techtube Studio</a></li>
+          <li><a href="https://paretoprofit.cheptiony.com/" target="_blank" class="hover:text-white transition">Pareto Profit</a></li>
+          <li><a href="/renewed-mind.html" class="hover:text-white transition">Renewed Mind Guide</a></li>
+          <li><a href="/book.html" class="hover:text-white transition">From Freelance to Fortune</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t pt-6 text-center text-sm text-slate-600" style="border-color:#1a3050">
+      © 2026 Cheptiony Mutai. All rights reserved. | Built with Focus and Strategy.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const BACKEND_URL = 'YOUR_BACKEND_ENDPOINT'; // ← Replace with your Cloud Run URL
+
+  // ── Mobile menu ──────────────────────────────────────────────
+  document.getElementById('menu-btn').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  });
+
+  // ── Slideshow ────────────────────────────────────────────────
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const dotsContainer = document.getElementById('slide-dots');
+  let current = 0;
+
+  // Build dots (one per valid slide)
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'w-2 h-2 rounded-full transition-all duration-300 ' + (i === 0 ? 'dot-active' : 'dot-inactive');
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.addEventListener('click', () => { clearInterval(timer); goTo(i); startTimer(); });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = () => Array.from(dotsContainer.children);
+
+  function goTo(n) {
+    slides[current].style.opacity = '0';
+    dots()[current].classList.replace('dot-active','dot-inactive');
+    current = n;
+    slides[current].style.opacity = '1';
+    dots()[current].classList.replace('dot-inactive','dot-active');
+  }
+
+  let timer;
+  function startTimer() {
+    timer = setInterval(() => goTo((current + 1) % slides.length), 4500);
+  }
+  startTimer();
+
+  // ── Blog posts ───────────────────────────────────────────────
+  function excerpt(html, max = 160) {
+    return html.replace(/<[^>]+>/g,'').replace(/https?:\/\/[^\s]+/g,'').replace(/\s+/g,' ').trim().slice(0,max) + '...';
+  }
+  fetch('/all_posts.json')
+    .then(r => r.json())
+    .then(posts => {
+      document.getElementById('blog-posts').innerHTML = posts.slice(0,3).map(p => `
+        <a href="/blog/${p.slug}.html"
+           class="group block rounded-2xl overflow-hidden transition-all duration-300"
+           style="background:#0c1628;border:1px solid #1a3050"
+           onmouseover="this.style.borderColor='rgba(34,211,238,0.35)'"
+           onmouseout="this.style.borderColor='#1a3050'">
+          <div class="aspect-video overflow-hidden" style="background:#0f1e30">
+            <img src="${p.featured_image}" alt="${p.title}"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                 onerror="this.parentElement.style.display='none'">
+          </div>
+          <div class="p-6">
+            <p class="text-cyan-400 text-xs font-medium mb-2">${p.date}</p>
+            <h3 class="text-white font-bold text-base leading-snug group-hover:text-cyan-400 transition mb-3 line-clamp-2">${p.title}</h3>
+            <p class="text-slate-500 text-sm leading-relaxed line-clamp-3">${excerpt(p.content)}</p>
+          </div>
+        </a>`).join('');
+    })
+    .catch(() => {
+      document.getElementById('blog-posts').innerHTML =
+        '<p class="text-slate-500 text-sm col-span-3 text-center py-8">Could not load posts. <a href="/blog.html" class="text-cyan-400 hover:underline">Visit the blog →</a></p>';
+    });
+
+  // ── Consulting form ──────────────────────────────────────────
+  document.getElementById('consulting-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const btn = document.getElementById('c-btn');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    try {
+      const res = await fetch(BACKEND_URL, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'consulting-homepage',
+          name: document.getElementById('c-name').value,
+          email: document.getElementById('c-email').value,
+          topic: document.getElementById('c-topic').value,
+          business_context: 'Consulting inquiry submitted from homepage',
+          message: document.getElementById('c-message').value
+        })
       });
-    </script>
-  </body>
+      if ((await res.json()).status === 'success') {
+        document.getElementById('consulting-form').classList.add('hidden');
+        document.getElementById('c-success').classList.remove('hidden');
+      } else throw new Error();
+    } catch {
+      btn.textContent = 'Send Consultation Request →'; btn.disabled = false;
+      document.getElementById('c-error').classList.remove('hidden');
+    }
+  });
+</script>
+</body>
 </html>
