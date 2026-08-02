@@ -477,7 +477,7 @@
     .then(r => r.json())
     .then(posts => {
       document.getElementById('blog-posts').innerHTML = posts.slice(0,3).map(p => `
-        <a href="/blog/${p.slug}.html"
+        <a href="/${p.slug}.html"
            class="group block rounded-2xl overflow-hidden transition-all duration-300"
            style="background:#0c1628;border:1px solid #1a3050"
            onmouseover="this.style.borderColor='rgba(34,211,238,0.35)'"
