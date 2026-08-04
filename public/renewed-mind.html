@@ -117,6 +117,7 @@
         <div id="download-form-wrapper">
           <p class="text-white font-semibold text-sm mb-3">Get your free copy — enter your email below:</p>
           <form id="download-form" class="flex flex-col sm:flex-row gap-3" novalidate>
+            <input type="text" id="hp-field" name="website" style="position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
             <input type="text" id="rm-name" placeholder="First name" required
                    class="flex-none sm:w-32 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none transition"
                    style="background:#082a2a;border:1px solid #0f3d3d"
@@ -316,6 +317,7 @@
           topic: 'Renewed Mind Guide — Download Request',
           business_context: 'Visitor requested the Renewed Mind, Abundant Life 40-day guide',
           message: `Download link: ${PDF_URL}`
+          hp: document.getElementById('hp-field').value
         })
       });
       if ((await res.json()).status === 'success') {
