@@ -249,6 +249,7 @@
         <h3 class="text-white font-bold text-xl mb-1.5">Book a Consultation</h3>
         <p class="text-slate-500 text-sm mb-6">Tell me about your challenge. I'll respond within 24 hours.</p>
         <form id="consulting-form" class="space-y-4" novalidate>
+        <input type="text" id="hp-field" name="website" style="position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
           <div>
             <label class="block text-sm text-slate-400 mb-1.5">Full Name</label>
             <input type="text" id="c-name" placeholder="Your name" required
@@ -514,6 +515,7 @@
           topic: document.getElementById('c-topic').value,
           business_context: 'Consulting inquiry submitted from homepage',
           message: document.getElementById('c-message').value
+          hp: document.getElementById('hp-field').value
         })
       });
       if ((await res.json()).status === 'success') {
