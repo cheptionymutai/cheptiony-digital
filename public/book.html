@@ -98,6 +98,7 @@
         <div id="waitlist-wrapper">
           <p class="text-white font-semibold text-sm mb-3">Get notified at launch — plus early chapter access:</p>
           <form id="waitlist-form" class="space-y-3" novalidate>
+            <input type="text" id="hp-field" name="website" style="position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
             <div class="flex flex-col sm:flex-row gap-3">
               <input type="text" id="b-name" placeholder="Your name" required
                      class="flex-none sm:w-36 rounded-xl px-4 py-3 text-white text-sm placeholder-slate-600 focus:outline-none transition"
@@ -281,6 +282,7 @@
           topic: 'From Freelance to Fortune — Waitlist',
           business_context: 'Book waitlist signup from book landing page',
           message: 'Please notify me when the book launches and send early chapter access.'
+          hp: document.getElementById('hp-field').value
         })
       });
       if ((await res.json()).status === 'success') {
