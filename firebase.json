@@ -8,14 +8,14 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "redirects": [
       {
         "source": "/sitemap.xml",
-        "run": {
-          "serviceId": "cheptiony-backend",
-          "region": "us-central1"
-        }
-      },
+        "destination": "https://cheptiony-backend-838892077100.us-central1.run.app/sitemap.xml?site=cheptiony",
+        "type": 302
+      }
+    ],
+    "rewrites": [
       {
         "source": "/success",
         "destination": "/success.html"
