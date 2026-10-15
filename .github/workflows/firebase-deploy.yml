@@ -1,14 +1,65 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies (safe)
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "package-lock.json found — running npm ci"
+            npm ci
+          elif [ -f package.json ]; then
+            echo "package.json found but no lockfile — running npm install"
+            npm install
+          else
+            echo "No package.json or package-lock.json — skipping install"
+          fi
+
+      - name: Ensure GCP service account secret exists
+        run: |
+          if [ -z "${{ secrets.GCP_SA_KEY }}" ]; then
+            echo "::error::Missing repository secret GCP_SA_KEY. Create it in Settings → Secrets → Actions and paste the service-account JSON there."
+            exit 1
+          fi
+
       - name: Write GCP service account key
-        run: echo "${{ secrets.GCP_SA_KEY }}" > "${{ github.workspace }}/gcloud-key.json"
+        run: |
+          # Write the service account JSON to a file (do not echo the secret)
+          printf '%s' "${{ secrets.GCP_SA_KEY }}" > "${{ github.workspace }}/gcloud-key.json"
+          chmod 600 "${{ github.workspace }}/gcloud-key.json"
 
       - name: Verify key and list projects (debug)
         env:
           GOOGLE_APPLICATION_CREDENTIALS: "${{ github.workspace }}/gcloud-key.json"
         run: |
-          echo "Checking service account file:"
+          echo "Checking service account file (masked):"
           ls -l "${{ github.workspace }}/gcloud-key.json"
-          node -e "console.log('node ok')"
+          # Show accessible projects for this service account (debug only)
           npx firebase-tools projects:list --debug || true
+
+      - name: Verify public directory exists
+        run: |
+          if [ ! -d public ]; then
+            echo "::error::Firebase public folder 'public' not found. Update firebase.json or add your built files to /public."
+            echo "Repository root contents:"
+            ls -la
+            exit 1
+          fi
 
       - name: Deploy to Firebase Hosting (service-account)
         env:
