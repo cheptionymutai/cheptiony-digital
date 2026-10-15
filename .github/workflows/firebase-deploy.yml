@@ -37,11 +37,44 @@ jobs:
             exit 1
           fi
 
-      - name: Write GCP service account key
+      - name: Write and clean GCP service account key
         run: |
-          # Write the service account JSON to a file (do not echo the secret)
+          # Write the secret to a file
           printf '%s' "${{ secrets.GCP_SA_KEY }}" > "${{ github.workspace }}/gcloud-key.json"
           chmod 600 "${{ github.workspace }}/gcloud-key.json"
+
+          # Clean common issues: remove UTF-8 BOM and leading/trailing quotes
+          python3 - <<'PY'
+import io,sys,os,json
+p=os.path.join(os.environ['GITHUB_WORKSPACE'],'gcloud-key.json')
+with open(p,'rb') as f:
+    b=f.read()
+# Remove UTF-8 BOM if present
+if b.startswith(b'\xef\xbb\xbf'):
+    b=b[3:]
+try:
+    s=b.decode('utf-8')
+except Exception:
+    s=b.decode('utf-8','replace')
+s=s.strip()
+# Remove surrounding quotes if user pasted the JSON wrapped in quotes
+if s.startswith('"') and s.endswith('"'):
+    s=s[1:-1]
+with open(p,'w',encoding='utf-8') as f:
+    f.write(s)
+# Validate JSON
+try:
+    json.loads(s)
+    print('Cleaned service-account JSON is valid')
+except Exception as e:
+    print('JSON validation failed:', e)
+    sys.exit(2)
+PY
+
+      - name: Debug service account file (non-sensitive checks)
+        run: |
+          echo "File size:" $(wc -c < "${{ github.workspace }}/gcloud-key.json")
+          echo "First 16 bytes hex:"; od -An -t x1 -N16 "${{ github.workspace }}/gcloud-key.json" | sed -E 's/^\s+//'
 
       - name: Verify key and list projects (debug)
         env:
