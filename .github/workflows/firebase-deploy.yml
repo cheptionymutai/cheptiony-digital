@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: # allows manual run from Actions > Workflows > Run workflow
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -18,9 +18,26 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm ci
-        working-directory: .
+      - name: Install dependencies (safe)
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "package-lock.json found — running npm ci"
+            npm ci
+          elif [ -f package.json ]; then
+            echo "package.json found but no lockfile — running npm install"
+            npm install
+          else
+            echo "No package.json or package-lock.json — skipping install"
+          fi
+
+      - name: Verify public directory
+        run: |
+          if [ ! -d public ]; then
+            echo "::error::Firebase public folder 'public' not found. Update firebase.json or add your built files to /public."
+            echo "Repository root contents:"
+            ls -la
+            exit 1
+          fi
 
       - name: Deploy to Firebase Hosting
         env:
