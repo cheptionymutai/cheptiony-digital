@@ -1,45 +1,16 @@
-name: Deploy to Firebase Hosting
+      - name: Write GCP service account key
+        run: echo "${{ secrets.GCP_SA_KEY }}" > "${{ github.workspace }}/gcloud-key.json"
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies (safe)
-        run: |
-          if [ -f package-lock.json ]; then
-            echo "package-lock.json found — running npm ci"
-            npm ci
-          elif [ -f package.json ]; then
-            echo "package.json found but no lockfile — running npm install"
-            npm install
-          else
-            echo "No package.json or package-lock.json — skipping install"
-          fi
-
-      - name: Verify public directory
-        run: |
-          if [ ! -d public ]; then
-            echo "::error::Firebase public folder 'public' not found. Update firebase.json or add your built files to /public."
-            echo "Repository root contents:"
-            ls -la
-            exit 1
-          fi
-
-      - name: Deploy to Firebase Hosting
+      - name: Verify key and list projects (debug)
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: npx firebase-tools deploy --only hosting --project cheptiony-digital --token "$FIREBASE_TOKEN"
+          GOOGLE_APPLICATION_CREDENTIALS: "${{ github.workspace }}/gcloud-key.json"
+        run: |
+          echo "Checking service account file:"
+          ls -l "${{ github.workspace }}/gcloud-key.json"
+          node -e "console.log('node ok')"
+          npx firebase-tools projects:list --debug || true
+
+      - name: Deploy to Firebase Hosting (service-account)
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: "${{ github.workspace }}/gcloud-key.json"
+        run: npx firebase-tools deploy --only hosting --project cheptiony-digital --debug
