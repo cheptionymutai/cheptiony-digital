@@ -1,0 +1,100 @@
+name: Deploy to Firebase Hosting
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies (safe)
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "package-lock.json found — running npm ci"
+            npm ci
+          elif [ -f package.json ]; then
+            echo "package.json found but no lockfile — running npm install"
+            npm install
+          else
+            echo "No package.json or package-lock.json — skipping install"
+          fi
+
+      - name: Ensure GCP service account secret exists
+        run: |
+          if [ -z "${{ secrets.GCP_SA_KEY }}" ]; then
+            echo "::error::Missing repository secret GCP_SA_KEY. Create it in Settings → Secrets → Actions and paste the service-account JSON there."
+            exit 1
+          fi
+
+      - name: Write and clean GCP service account key
+        run: |
+          # Write the secret to a file
+          printf '%s' "${{ secrets.GCP_SA_KEY }}" > "${{ github.workspace }}/gcloud-key.json"
+          chmod 600 "${{ github.workspace }}/gcloud-key.json"
+
+          # Clean common issues: remove UTF-8 BOM and leading/trailing quotes
+          python3 - <<'PY'
+import io,sys,os,json
+p=os.path.join(os.environ['GITHUB_WORKSPACE'],'gcloud-key.json')
+with open(p,'rb') as f:
+    b=f.read()
+# Remove UTF-8 BOM if present
+if b.startswith(b'\xef\xbb\xbf'):
+    b=b[3:]
+try:
+    s=b.decode('utf-8')
+except Exception:
+    s=b.decode('utf-8','replace')
+s=s.strip()
+# Remove surrounding quotes if user pasted the JSON wrapped in quotes
+if s.startswith('"') and s.endswith('"'):
+    s=s[1:-1]
+with open(p,'w',encoding='utf-8') as f:
+    f.write(s)
+# Validate JSON
+try:
+    json.loads(s)
+    print('Cleaned service-account JSON is valid')
+except Exception as e:
+    print('JSON validation failed:', e)
+    sys.exit(2)
+PY
+
+      - name: Debug service account file (non-sensitive checks)
+        run: |
+          echo "File size:" $(wc -c < "${{ github.workspace }}/gcloud-key.json")
+          echo "First 16 bytes hex:"; od -An -t x1 -N16 "${{ github.workspace }}/gcloud-key.json" | sed -E 's/^\s+//'
+
+      - name: Verify key and list projects (debug)
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: "${{ github.workspace }}/gcloud-key.json"
+        run: |
+          echo "Checking service account file (masked):"
+          ls -l "${{ github.workspace }}/gcloud-key.json"
+          # Show accessible projects for this service account (debug only)
+          npx firebase-tools projects:list --debug || true
+
+      - name: Verify public directory exists
+        run: |
+          if [ ! -d public ]; then
+            echo "::error::Firebase public folder 'public' not found. Update firebase.json or add your built files to /public."
+            echo "Repository root contents:"
+            ls -la
+            exit 1
+          fi
+
+      - name: Deploy to Firebase Hosting (service-account)
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: "${{ github.workspace }}/gcloud-key.json"
+        run: npx firebase-tools deploy --only hosting --project cheptiony-digital --debug
